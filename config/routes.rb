@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'days/show'
+  get 'days/index'
   devise_for :users
   root to: 'pages#home'
   get "/profile", to: "user#show"
