@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_23_161922) do
+ActiveRecord::Schema.define(version: 2019_05_24_095000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "days", force: :cascade do |t|
+    t.datetime "date"
+    t.integer "budget_cents", default: 0, null: false
+    t.string "budget_currency", default: "GBP", null: false
+    t.float "goal_progress"
+    t.bigint "goal_id"
+    t.bigint "wallet_id"
+    t.string "show"
+    t.string "index"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["goal_id"], name: "index_days_on_goal_id"
+    t.index ["wallet_id"], name: "index_days_on_wallet_id"
+  end
 
   create_table "goals", force: :cascade do |t|
     t.string "name"
@@ -71,6 +86,8 @@ ActiveRecord::Schema.define(version: 2019_05_23_161922) do
     t.index ["user_id"], name: "index_wallets_on_user_id"
   end
 
+  add_foreign_key "days", "goals"
+  add_foreign_key "days", "wallets"
   add_foreign_key "goals", "wallets"
   add_foreign_key "transactions", "wallets"
   add_foreign_key "wallets", "users"
