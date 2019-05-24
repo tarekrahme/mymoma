@@ -1,11 +1,13 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#" do %>
+  <%= link_to "days_path" do %>
     <i class="fas fa-chart-line"></i>
   <% end %>
-  <%= link_to "#" do %>
+  <% if user_signed_in? %>
+    <%= link_to wallet_path(current_user.wallet) do %>
     <i class="fas fa-wallet"></i>
   <% end %>
-  <%= link_to "#" do %>
+  <% end %>
+  <%= link_to destroy_user_session_path, method: :delete do %>
     <i class="fas fa-bullseye"></i>
   <% end %>
   <%= link_to "#" do %>
