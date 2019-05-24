@@ -1,9 +1,20 @@
 <div class="container">
 
   <h1>Hi <%= @wallet.user.first_name %></h1>
-  <h2> £16 </h2>
-  <h3> Remaining</h3>
-  <span class="dot"></span>
+  <div class="circle">
+    <div class="circle-info">
+      <div class="large-writing">£16</div>Remaining
+    </div>
+  </div>
+
+  <div class="little-card">
+    <div class="card-box border rounded mt-2">
+      <div class="card-info m-3">
+        <h2>Money spent today:</h2>
+        <p>You are within your daily budget </p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
-<div class="circle">Hello</div>
