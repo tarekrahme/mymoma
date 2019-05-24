@@ -1,5 +1,6 @@
 class Wallet < ApplicationRecord
   belongs_to :user
-  has_many :goals
+  has_one :goal
   has_many :transactions
+  has_many :days
 end
