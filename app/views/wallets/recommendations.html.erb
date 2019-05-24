@@ -1,0 +1,11 @@
+<h1>Recommendations</h1>
+
+<%= simple_form_for(@wallet) do |f| %>
+<%= f.input :daily_income, as: :hidden %>
+<%= f.input :savings, as: :hidden %>
+<%= f.input :fixed_cost %>
+
+<%=f.submit 'Make sense!' %>
+
+<% end %>
+
