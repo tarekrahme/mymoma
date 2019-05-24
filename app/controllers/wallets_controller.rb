@@ -1,4 +1,4 @@
-class WalletController < ApplicationController
+class WalletsController < ApplicationController
   before_action :set_wallet, only: [:show]
 
   def show

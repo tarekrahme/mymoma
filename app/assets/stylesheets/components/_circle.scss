@@ -1,0 +1,18 @@
+.dot {
+  height: 300px;
+  width: 300px;
+  background-color: $blue;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.circle{
+    width:100px;
+    height:100px;
+    border-radius:50px;
+    font-size:20px;
+    color:#fff;
+    line-height:100px;
+    text-align:center;
+    background:#000
+}
