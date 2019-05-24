@@ -12,7 +12,9 @@
   <body>
     <%= render 'shared/flashes' %>
     <%= yield %>
-    <%= render 'shared/navbar' %>
+    <% unless action_name == 'landing' %>
+      <%= render 'shared/navbar' %>
+    <% end %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>

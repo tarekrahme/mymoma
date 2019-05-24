@@ -15,7 +15,7 @@ class WalletsController < ApplicationController
   private
 
   def set_wallet
-    @wallet = Wallet.find(params[:id])
+    @wallet = current_user.wallet
   end
 
   def wallet_params
