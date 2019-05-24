@@ -1,0 +1,13 @@
+<h1>Tell us a bit more</h1>
+
+
+<%= simple_form_for @wallet, url: recommendations_path, method: :get do |f| %>
+  <%= f.input daily_income_cents, :placeholder => "£" %>
+  <%= f.input savings_cents, :placeholder => "£"%>
+   <%= f.input fixed_cost_cents, :placeholder => "£"%>
+  <%= f.submit "Get recommendations", class: "btn btn-primary"%>
+<% end %>
+
+
+
+ <p>Available to spend</p>
