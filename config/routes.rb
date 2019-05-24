@@ -20,6 +20,6 @@ Rails.application.routes.draw do
     end
   end
   resources :goals, except: :index
-  resources :transactions, only: [:show, :index]
+  resources :transactions
   resources :days , only: [:show, :index]
 end
