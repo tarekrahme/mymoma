@@ -1,10 +1,10 @@
 <h1>Tell us a bit more</h1>
 
 
-<%= simple_form_for @wallet, url: recommendations_path, method: :get do |f| %>
-  <%= f.input daily_income_cents, :placeholder => "£" %>
-  <%= f.input savings_cents, :placeholder => "£"%>
-   <%= f.input fixed_cost_cents, :placeholder => "£"%>
+<%= simple_form_for @wallet, url: recommendations_wallets_path, method: :get do |f| %>
+  <%= f.input :daily_income_cents, :placeholder => "£", label: "Monthly Income" %>
+  <%= f.input :savings_cents, :placeholder => "£", label: "Monthly saving goal" %>
+   <%= f.input :fixed_cost_cents, :placeholder => "£", label: "Fixed expenses" %>
   <%= f.submit "Get recommendations", class: "btn btn-primary"%>
 <% end %>
 
