@@ -1,18 +1,19 @@
-.dot {
-  height: 300px;
-  width: 300px;
-  background-color: $blue;
-  border-radius: 50%;
-  display: inline-block;
-}
+
 
 .circle{
-    width:100px;
-    height:100px;
-    border-radius:50px;
-    font-size:20px;
-    color:#fff;
+    width:270px;
+    height:270px;
+    border-radius:50%;
+    font-size:40px;
+    color: white;
     line-height:100px;
     text-align:center;
-    background:#000
+    justify-content: center;
+    background: $blue;
+    margin-left: 50px;
+}
+
+
+.large-writing{
+  font-size: 60px;
 }
