@@ -1,3 +1,5 @@
-<%= current_user.wallet.goal.name %>
-<%= image_tag 'thailand.jpg', class:"img-thumbnail"%>
-<p>Press <a href="#">Here</a> to book</p>
+<div class="container">
+  <h1><%= current_user.wallet.goal.name.capitalize %></h1>
+  <%= image_tag 'thailand.jpg', class:"img-thumbnail"%>
+  <p>Press <a href="#">Here</a> to book</p>
+</div>
