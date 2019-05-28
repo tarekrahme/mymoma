@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_24_095000) do
+ActiveRecord::Schema.define(version: 2019_05_28_101343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2019_05_24_095000) do
     t.bigint "wallet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "day_id"
+    t.index ["day_id"], name: "index_transactions_on_day_id"
     t.index ["wallet_id"], name: "index_transactions_on_wallet_id"
   end
 
@@ -89,6 +91,7 @@ ActiveRecord::Schema.define(version: 2019_05_24_095000) do
   add_foreign_key "days", "goals"
   add_foreign_key "days", "wallets"
   add_foreign_key "goals", "wallets"
+  add_foreign_key "transactions", "days"
   add_foreign_key "transactions", "wallets"
   add_foreign_key "wallets", "users"
 end
