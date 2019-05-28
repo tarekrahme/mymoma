@@ -10,4 +10,7 @@
       <% end %>
     <% end %>
   </div>
+  <%= link_to "Add a transaction", new_transaction_path %>
+  <br>
+  <%= link_to "Dashboard", wallet_path(current_user.wallet) %>
 </div>
