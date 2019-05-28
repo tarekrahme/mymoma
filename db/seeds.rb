@@ -76,7 +76,17 @@ carl_trans_0_2 = Transaction.create(wallet: carlotta_wallet, day: days_ago_0, am
 carl_trans_0_3 = Transaction.create(wallet: carlotta_wallet, day: days_ago_0, amount_cents: 400, merchant: "Bakery")
 carl_trans_0_4 = Transaction.create(wallet: carlotta_wallet, day: days_ago_0, amount_cents: 500, merchant: "Pharmacy")
 carl_trans_1_1 = Transaction.create(wallet: carlotta_wallet, day: days_ago_1, amount_cents: 600, merchant: "Book")
-
+carl_trans_1_2 = Transaction.create(wallet: carlotta_wallet, day: days_ago_1, amount_cents: 700, merchant: "Water")
+carl_trans_1_3 = Transaction.create(wallet: carlotta_wallet, day: days_ago_1, amount_cents: 800, merchant: "Plant")
+carl_trans_1_4 = Transaction.create(wallet: carlotta_wallet, day: days_ago_1, amount_cents: 900, merchant: "Plug")
+carl_trans_2_1 = Transaction.create(wallet: carlotta_wallet, day: days_ago_2, amount_cents: 200, merchant: "Pret")
+carl_trans_2_2 = Transaction.create(wallet: carlotta_wallet, day: days_ago_2, amount_cents: 300, merchant: "Eat")
+carl_trans_2_3 = Transaction.create(wallet: carlotta_wallet, day: days_ago_2, amount_cents: 400, merchant: "Bakery")
+carl_trans_2_4 = Transaction.create(wallet: carlotta_wallet, day: days_ago_2, amount_cents: 500, merchant: "Pharmacy")
+carl_trans_3_1 = Transaction.create(wallet: carlotta_wallet, day: days_ago_3, amount_cents: 600, merchant: "Book")
+carl_trans_3_2 = Transaction.create(wallet: carlotta_wallet, day: days_ago_3, amount_cents: 700, merchant: "Water")
+carl_trans_3_3 = Transaction.create(wallet: carlotta_wallet, day: days_ago_3, amount_cents: 800, merchant: "Plant")
+carl_trans_3_4 = Transaction.create(wallet: carlotta_wallet, day: days_ago_3, amount_cents: 900, merchant: "Plug")
 puts "Transactions created"
 
 
