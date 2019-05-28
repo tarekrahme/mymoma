@@ -1,9 +1,9 @@
 <h1>Recommendations</h1>
 
-<%= simple_form_for(@wallet) do |f| %>
-<%= f.input :daily_income_cents, as: :hidden %>
-<%= f.input :savings_cents, as: :hidden %>
-<%= f.input :fixed_cost_cents, label: "Fixed expenses" %>
+<%= simple_form_for @wallet do |f| %>
+<%= f.input :daily_income, as: :hidden %>
+<%= f.input :savings, as: :hidden %>
+<%= f.input :fixed_cost, label: "Fixed expenses" %>
 
 <%=f.submit 'Make sense!'%>
 

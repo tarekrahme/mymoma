@@ -5,11 +5,13 @@ class WalletsController < ApplicationController
   end
 
   def tell_us_a_bit_more
-    @wallet = Wallet.new
+    @wallet = current_user.wallet
   end
 
   def recommendations
-    @wallet = Wallet.new(wallet_params)
+    @wallet = current_user.wallet
+    # raise
+    # @wallet.update(wallet_params)
   end
 
   private
