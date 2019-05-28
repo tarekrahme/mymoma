@@ -6,4 +6,7 @@ class PagesController < ApplicationController
 
   def landing
   end
+
+  def questions
+  end
 end

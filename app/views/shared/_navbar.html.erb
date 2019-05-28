@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "days_path" do %>
+  <%= link_to days_path do %>
     <i class="fas fa-chart-line"></i>
   <% end %>
   <% if user_signed_in? %>
@@ -7,10 +7,16 @@
     <i class="fas fa-wallet"></i>
   <% end %>
   <% end %>
-  <%= link_to destroy_user_session_path, method: :delete do %>
-    <i class="fas fa-bullseye"></i>
+  <% if current_user.wallet.goal %>
+    <%= link_to goal_path(current_user.wallet.goal) do %>
+      <i class="fas fa-bullseye"></i>
+    <% end %>
+  <% else %>
+    <%= link_to new_goal_path do %>
+      <i class="fas fa-bullseye"></i>
+    <% end %>
   <% end %>
-  <%= link_to "#" do %>
+  <%= link_to questions_path do %>
     <i class="far fa-question-circle"></i>
   <% end %>
 

@@ -9,6 +9,18 @@
   display: flex;
 }
 
+.navbar-logo {
+  justify-content: space-between;
+  background: white;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 40px;
+  display: flex;
+}
+
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
