@@ -1,13 +1,15 @@
 <h1>Tell us a bit more</h1>
 
 
-<%= simple_form_for @wallet, url: recommendations_wallets_path, method: :get do |f| %>
-  <%= f.input :daily_income_cents, :placeholder => "£", label: "Monthly Income" %>
-  <%= f.input :savings_cents, :placeholder => "£", label: "Monthly saving goal" %>
-   <%= f.input :fixed_cost_cents, :placeholder => "£", label: "Fixed expenses" %>
-  <%= f.submit "Get recommendations", class: "btn btn-primary"%>
+<%= simple_form_for @wallet, url: tell_us_a_bit_more_wallets_path do |f| %>
+  <%= f.input :daily_income_cents, :placeholder => "£", label: "Monthly Income", input_html: { value: @wallet.daily_income_cents || 0 } %>
+  <%= f.input :savings_cents, :placeholder => "£", label: "Monthly saving goal", input_html: { value: @wallet.savings_cents || 0 } %>
+  <%= f.input :fixed_cost_cents, :placeholder => "£", label: "Fixed expenses", input_html: { value: @wallet.fixed_cost_cents || 0 } %>
+
+  <p>Available to spend: <%= @wallet.daily_income_cents - @wallet.savings_cents - @wallet.fixed_cost_cents %> </p>
+
+
+
+  <%= f.submit "Calculate", class: "btn btn-primary"%>
+  <%= link_to 'Get Recommendations', recommendations_wallets_path, class: "btn btn-success" %>
 <% end %>
-
-
-
- <p>Available to spend</p>
