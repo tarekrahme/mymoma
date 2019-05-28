@@ -5,6 +5,7 @@ class DaysController < ApplicationController
   end
 
   def show
+
   end
 
   private

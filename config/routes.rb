@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'days/show'
-  get 'days/index'
 
   devise_for :users, controllers: {registrations: 'registrations'}
   authenticated do
@@ -8,6 +6,7 @@ Rails.application.routes.draw do
   end
   root to: "pages#landing"
   get "/profile", to: "user#show"
+  get "/questions", to: "pages#questions"
   get "home", to: "pages#home"
   get 'landing', to: "pages#landing"
 

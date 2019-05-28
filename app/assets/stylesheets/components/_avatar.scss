@@ -1,5 +1,7 @@
 .avatar {
   width: 40px;
+  object-fit: cover;
+  height: 40px;
   border-radius: 50%;
 }
 .avatar-large {
@@ -21,4 +23,9 @@
 
 .main-logo {
   margin-top: 100px;
+}
+
+.small-logo {
+  width: 70px;
+  height: 40px;
 }
