@@ -7,7 +7,7 @@
     <i class="fas fa-wallet"></i>
   <% end %>
   <% end %>
-  <% if current_user.wallet.goal %>
+  <% if current_user&.wallet&.goal %>
     <%= link_to goal_path(current_user.wallet.goal) do %>
       <i class="fas fa-bullseye"></i>
     <% end %>
