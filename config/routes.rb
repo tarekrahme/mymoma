@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, except: :index
-  resources :wallets, only: [:show, :create ]do
+  resources :wallets, only: [:show, :create, :edit, :update ]do
     collection do
       get 'tell_us_a_bit_more', to: 'wallets#tell_us_a_bit_more'
       get 'recommendations', to: 'wallets#recommendations'
