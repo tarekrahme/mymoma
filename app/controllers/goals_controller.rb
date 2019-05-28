@@ -6,7 +6,7 @@ class GoalsController < ApplicationController
 
   def new
     @goal = Goal.new
-    @wallet = Wallet.find(params[:wallet_id])
+    @wallet = current_user.wallet
   end
 
   def create
