@@ -2,8 +2,7 @@ class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
 
   def index
-    @transactions = Transaction.all.where( day = Date.today)
-    # Add transactions to Day table - A day has many transactions
+    @transactions = Transaction.joins(:day).where(days: { date: Date.today })
   end
 
   def show

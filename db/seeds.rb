@@ -8,6 +8,7 @@
 
 puts "Cleaning database..."
 
+Transaction.destroy_all
 Day.destroy_all
 Goal.destroy_all
 Wallet.destroy_all
@@ -41,6 +42,8 @@ tjiani_wallet = Wallet.create(user: tjiani)
 puts "Wallets created!"
 
 
+puts "Creating goals..."
+
 holiday = Goal.create(wallet: carlotta_wallet, name: "holiday",amount: 330)
 
 laptop = Goal.create(wallet: luca_wallet, name: "laptop",amount: 800)
@@ -50,3 +53,41 @@ house = Goal.create(wallet: tarek_wallet, name: "house",amount: 300000)
 ring = Goal.create(wallet: tjiani_wallet, name: "ring",amount: 240)
 
 puts "Goals created"
+
+
+puts "Creating days..."
+
+days_ago_7 = Day.create(date: Date.today - 7, wallet: carlotta_wallet, goal: holiday)
+days_ago_6 = Day.create(date: Date.today - 6, wallet: carlotta_wallet, goal: holiday)
+days_ago_5 = Day.create(date: Date.today - 5, wallet: carlotta_wallet, goal: holiday)
+days_ago_4 = Day.create(date: Date.today - 4, wallet: carlotta_wallet, goal: holiday)
+days_ago_3 = Day.create(date: Date.today - 3, wallet: carlotta_wallet, goal: holiday)
+days_ago_2 = Day.create(date: Date.today - 2, wallet: carlotta_wallet, goal: holiday)
+days_ago_1 = Day.create(date: Date.today - 1, wallet: carlotta_wallet, goal: holiday)
+days_ago_0 = Day.create(date: Date.today, wallet: carlotta_wallet, goal: holiday)
+
+puts "Days created"
+
+
+puts "Creating transactions..."
+
+carl_trans_0_1 = Transaction.create(wallet: carlotta_wallet, day: days_ago_0, amount_cents: 200, merchant: "Pret")
+carl_trans_0_2 = Transaction.create(wallet: carlotta_wallet, day: days_ago_0, amount_cents: 300, merchant: "Eat")
+carl_trans_0_3 = Transaction.create(wallet: carlotta_wallet, day: days_ago_0, amount_cents: 400, merchant: "Bakery")
+carl_trans_0_4 = Transaction.create(wallet: carlotta_wallet, day: days_ago_0, amount_cents: 500, merchant: "Pharmacy")
+carl_trans_1_1 = Transaction.create(wallet: carlotta_wallet, day: days_ago_1, amount_cents: 600, merchant: "Book")
+
+puts "Transactions created"
+
+
+
+
+
+
+
+
+
+
+
+
+
