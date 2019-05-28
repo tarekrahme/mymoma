@@ -2,6 +2,7 @@ class WalletsController < ApplicationController
   before_action :set_wallet, only: [:show, :update, :recommendations]
 
   def show
+    total_spent = 0.0
     today_type = Date.today.wday.to_i
     recommendations
     if today_type > 0 && today_type < 6
@@ -9,6 +10,12 @@ class WalletsController < ApplicationController
     else
       @daily_budget = @weekend_available.round(1)
     end
+
+    @transactions = Transaction.joins(:day).where(days: { date: Date.today })
+    @transactions.each do |transaction|
+      total_spent += transaction.amount_cents / 100.0
+    end
+    @daily_remaining = @daily_budget - total_spent
   end
 
   def tell_us_a_bit_more
