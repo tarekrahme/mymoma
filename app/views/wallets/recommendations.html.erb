@@ -1,14 +1,10 @@
-<h1>Recommendations</h1>
-
-<%= simple_form_for @wallet do |f| %>
-<%= f.input :daily_income, as: :hidden %>
-<%= f.input :savings, as: :hidden %>
-<%= f.input :fixed_cost, label: "Fixed expenses" %>
-
-<%=f.submit 'Make sense!'%>
-
-<% end %>
-
-<%= @available_spend %>
-<p>Weekday spend: <%= @available_spend / 22 %></p>
-<p>Weekend spend: <%= @available_spend / 8 %></p>
+<div class="container text-center">
+  <h1>Recommendations</h1>
+  <br>
+  <h2>Available to spend this month: <br> £<%= @available_spend %></h2>
+  <br>
+  <br>
+  <h3>Weekday daily spend: <br> £<%= @weekday_available.round(1) %></h3>
+  <br>
+  <h3>Weekend daily spend: <br> £<%= @weekend_available.round(1) %></h3>
+</div>

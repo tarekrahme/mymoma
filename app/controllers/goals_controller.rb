@@ -13,6 +13,7 @@ class GoalsController < ApplicationController
     @goal = Goal.new(goal_params)
     @wallet = Wallet.find(params[:wallet_id])
     @goal.wallet = @wallet
+    @goal.monthly_contribution = @goal.amount / (@goal.completion_date.month - Date.today.month)
     if @goal.save
       redirect_to goal_path(@goal)
     else
