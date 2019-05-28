@@ -11,7 +11,7 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
-    @wallet = Wallet.find(params[:wallet_id])
+    @wallet = current_user.wallet
     @goal.wallet = @wallet
     if @goal.save
       redirect_to goal_path(@goal)
