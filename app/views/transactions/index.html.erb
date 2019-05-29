@@ -3,14 +3,14 @@
   <div class="transactions-box w-100">
     <% @transactions.each do |transaction| %>
       <%= link_to transaction_path(transaction) do %>
-        <div class="d-flex display-inline justify-content-between my-3">
-          <h4 class = "ml-3"><%= transaction.merchant %></h4>
-          <h4 class="">£<%= transaction.amount_cents.to_f/100 %></h4>
+        <div class="transaction_list_item d-flex display-inline justify-content-between my-3 py-2 px-3">
+          <h4 class = ""><%= transaction.merchant %></h4>
+          <h4 class="">£<%= transaction.amount_cents / 100 %></h4>
         </div>
       <% end %>
     <% end %>
   </div>
-  <%= link_to "Add a transaction", new_transaction_path %>
+  <%= link_to "Add a transaction", new_transaction_path, class:"btn btn-primary btn-main" %>
   <br>
-  <%= link_to "Dashboard", wallet_path(current_user.wallet) %>
+  <%= link_to "Dashboard", root_path, class:"btn btn-primary btn-main" %>
 </div>
