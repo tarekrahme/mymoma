@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     root to: 'wallets#show'
   end
   root to: "pages#landing"
-  get "/profile", to: "user#show"
+  get "/profile", to: "users#show"
   get "/questions", to: "pages#questions"
   get "home", to: "pages#home"
   get 'landing', to: "pages#landing"

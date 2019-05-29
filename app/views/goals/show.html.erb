@@ -1,3 +1,6 @@
-<%= current_user.wallet.goal.name %>
-<%= image_tag 'thailand.jpg', class:"img-thumbnail"%>
-<p>Press <a href="#">Here</a> to book</p>
+<div class="container">
+  <h1><%= current_user.wallet.goal.name.capitalize %></h1>
+  <div class="background-image" style="height: 250; background-image: url(<%= @goal.picture.file ? (cl_image_path @goal.picture, crop: :fill) : 'https://images.unsplash.com/photo-1506666823169-bafe353bae96?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80' %>);
+             height: 200px; background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
+  <p>Press <a href="#">Here</a> to book</p>
+</div>

@@ -11,7 +11,7 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
-    @wallet = Wallet.find(params[:wallet_id])
+    @wallet = current_user.wallet
     @goal.wallet = @wallet
     @goal.monthly_contribution = @goal.amount / (@goal.completion_date.month - Date.today.month)
     if @goal.save

@@ -1,15 +1,19 @@
-<h1>Username</h1>
+<div class="container">
+  <h1 class="text-center m-"><%= current_user.first_name %> <%= current_user.last_name %></h1>
+  <div class = "profile-image text-center m-4">
+    <%= cl_image_tag current_user.photo, gravity: :face,  class:"avatar-large"%>
+  </div>
 
-<div class = "profile-image">
-  <%= image_tag 'logo.png' %>
+
+  <div class = "bio-box">
+
+  </div>
+
+  <div class="d-flex flex-column justify-content-center">
+    <%= link_to "Edit Profile", edit_user_registration_path, class:"btn btn-primary btn-main"%>
+
+    <%= link_to "Income Preferences", root_path, class:"btn btn-primary btn-main" %>
+
+    <%= link_to "Share MyMoMa", root_path, class:"btn btn-primary btn-main" %>
+  </div>
 </div>
-
-<div class = "bio-box">
-
-</div>
-
-<%= link_to "Edit Profile", edit_user_registration_path %>
-
-<%= link_to "Income Preferences", root_path %>
-
-<%= link_to "Share MyMoMa", root_path %>

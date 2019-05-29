@@ -6,11 +6,13 @@
       <%= f.input :name %>
       <%= f.input :amount_cents %>
       <%= f.input :completion_date %>
+      <%= f.input :picture %>
+      <%= f.input :picture_cache, as: :hidden %>
       <%= f.input :link %>
     </div>
 
    <div class="form-actions">
-        <%= f.button :submit, "Sign up", class:"btn btn-primary" %>
+        <%= f.button :submit, "Add Goal", class:"btn btn-primary btn-main" %>
     </div>
   <% end %>
   </div>
