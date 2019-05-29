@@ -15,8 +15,8 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(amount_cents: transaction_params["amount_cents"])
     @transaction.merchant = transaction_params["merchant"]
-    day = Day.find_by(date: transaction_params["day"]) || Day.create(date: transaction_params["day"], wallet: current_user.wallet, goal: current_user.wallet.goal)
     @transaction.wallet = current_user.wallet
+    day = Day.find_by(date: transaction_params["day"]) || Day.create(date: transaction_params["day"], wallet: current_user.wallet, goal: current_user.wallet.goal)
     @transaction.day = day
     if @transaction.save
       redirect_to transactions_path
