@@ -6,4 +6,5 @@ class Wallet < ApplicationRecord
   monetize :daily_income_cents
   monetize :savings_cents
   monetize :fixed_cost_cents
+  monetize :monthly_income_cents
 end

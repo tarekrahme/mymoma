@@ -1,23 +1,23 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to days_path do %>
-    <i class="fas fa-chart-line"></i>
-  <% end %>
-  <% if user_signed_in? %>
-    <%= link_to wallet_path(current_user.wallet) do %>
-    <i class="fas fa-wallet"></i>
-  <% end %>
-  <% end %>
-  <% if current_user&.wallet&.goal %>
-    <%= link_to goal_path(current_user.wallet.goal) do %>
-      <i class="fas fa-bullseye"></i>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <%= link_to days_path do %>
+      <i class="fas fa-chart-line"></i>
     <% end %>
-  <% else %>
-    <%= link_to new_goal_path do %>
-      <i class="fas fa-bullseye"></i>
+    <% if user_signed_in? %>
+      <%= link_to wallet_path(current_user.wallet) do %>
+        <i class="fas fa-wallet"></i>
+      <% end %>
     <% end %>
-  <% end %>
-  <%= link_to questions_path do %>
-    <i class="far fa-question-circle"></i>
-  <% end %>
+    <% if current_user&.wallet&.goal %>
+      <%= link_to goal_path(current_user.wallet.goal) do %>
+        <i class="fas fa-bullseye"></i>
+      <% end %>
+    <% else %>
+      <%= link_to new_goal_path do %>
+        <i class="fas fa-bullseye"></i>
+      <% end %>
+    <% end %>
+    <%= link_to questions_path do %>
+      <i class="far fa-question-circle"></i>
+    <% end %>
 
-</div>
+  </div>

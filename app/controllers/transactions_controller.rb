@@ -13,7 +13,11 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @transaction = Transaction.new(transaction_params)
+    @transaction = Transaction.new(amount_cents: transaction_params["amount_cents"])
+    @transaction.merchant = transaction_params["merchant"]
+    @transaction.wallet = current_user.wallet
+    day = Day.find_by(date: transaction_params["day"]) || Day.create(date: transaction_params["day"], wallet: current_user.wallet, goal: current_user.wallet.goal)
+    @transaction.day = day
     if @transaction.save
       redirect_to transactions_path
     else

@@ -2,14 +2,14 @@
 
 
 <%= simple_form_for @wallet, url: tell_us_a_bit_more_wallets_path do |f| %>
-  <%= f.input :daily_income_cents, :placeholder => "£", label: "Monthly Income", input_html: { value: @wallet.daily_income_cents || 0 } %>
+  <%= f.input :monthly_income_cents, :placeholder => "Your monthly income £", label: "Monthly Income", input_html: { value: @wallet.monthly_income_cents || 0 } %>
   <%= f.input :savings_cents, :placeholder => "£", label: "Monthly saving goal", input_html: { value: @wallet.savings_cents || 0 } %>
-  <%= f.input :fixed_cost_cents, :placeholder => "£", label: "Fixed expenses", input_html: { value: @wallet.fixed_cost_cents || 0 } %>
+  <%= f.input :fixed_cost_cents, :placeholder => "Rent, bills ... £", label: "Fixed expenses", input_html: { value: @wallet.fixed_cost_cents || 0 } %>
 
-  <p>Available to spend: <%= @wallet.daily_income_cents - @wallet.savings_cents - @wallet.fixed_cost_cents %> </p>
+  <p>Available to spend: <%= @wallet.monthly_income_cents - @wallet.savings_cents - @wallet.fixed_cost_cents %> </p>
 
 
 
-  <%= f.submit "Calculate", class: "btn btn-primary"%>
+  <%= f.submit "Calculate your disposable income", class: "btn btn-primary"%>
   <%= link_to 'Get Recommendations', recommendations_wallets_path, class: "btn btn-success" %>
 <% end %>

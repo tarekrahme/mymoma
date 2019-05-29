@@ -3,18 +3,23 @@
   <h1>Hi <%= @wallet.user.first_name %></h1>
   <div class="circle">
     <div class="circle-info">
-      <div class="large-writing">£16</div>Remaining
+      <div class="large-writing">£ <%= @daily_remaining.round(1) %> </div>Remaining
     </div>
   </div>
 
   <div class="little-card">
     <div class="card-box border rounded mt-2">
       <div class="card-info m-3">
-        <h2>Money spent today:</h2>
-        <p>You are within your daily budget </p>
+        <h2>Money spent today: <%= @total_spent %> </h2>
+        <% if @total_spent <= @daily_budget %>
+          <p>You are within your daily budget </p>
+        <% else %>
+          <p>You have exceeded your budget for the day</p>
+        <% end %>
       </div>
     </div>
   </div>
+  <%= link_to "View transactions", transactions_path  %>
 
 </div>
 
