@@ -28,9 +28,13 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= render 'shared/logo' %>
+
+    <% unless action_name == 'landing' %>
+      <%= render 'shared/logo' %>
+    <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
+    <div style="height: 77px;"></div>
     <% unless action_name == 'landing' || controller_name == 'registrations' || controller_name == 'sessions' %>
       <%= render 'shared/navbar' %>
     <% end %>

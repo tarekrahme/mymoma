@@ -1,26 +1,32 @@
-<div class="container">
+<div class="wallet-wrapper" style="height: calc(100vh - 132px);">
 
-  <h1 class="m-4">Hi <%= @wallet.user.first_name %>!</h1>
-  <div class="circle tex">
-    <div class="circle-info">
-      <div class="large-writing">£ <%= @daily_remaining.round(1) %> </div>
-      <div style="font-size: 20px;">Remaining</div>
-    </div>
-  </div>
-
-  <div class="little-card mt-3">
-    <div class="card-box border mt-2">
-      <div class="card-info m-3">
-        <h2 class="font-weight-bold" style="font-size:20px;">Money spent today: </h2><div class="text-center" style="font-size:30px;">£<%= @total_spent %></div>
-        <% if @total_spent <= @daily_budget %>
-          <p>You are within your daily budget 👍🏼</p>
-        <% else %>
-          <p>You have exceeded your budget for the day 👎🏼</p>
-        <% end %>
+    <div class="circle-container">
+      <div class="container" style="padding-bottom: 15px;">
+        <h2 class="p-4 text-center">Hi <%= @wallet.user.first_name %>!</h2>
+        <div style="margin: 50px;">
+          <div class="circle tex">
+            <div class="circle-info">
+              <div class="large-writing">£ <%= @daily_remaining.round(1) %> </div>
+              <div style="font-size: 20px;">Remaining</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <%= link_to "View transactions", transactions_path, class:"btn btn-primary btn-main mt-4"  %>
 
+    <div class="container info-flex">
+      <div class="little-card">
+        <div class="">
+          <div class="card-info">
+            <h2 class="font-weight-bold text-center" style="font-size:20px;">Money spent today: </h2><div class="text-center" style="font-size:30px;">£<%= @total_spent %></div>
+            <% if @total_spent <= @daily_budget %>
+              <p class="text-center">You are within your daily budget 👍🏼</p>
+            <% else %>
+              <p class="text-center">You have exceeded your budget for the day 👎🏼</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <%= link_to "View transactions", transactions_path, class:"btn btn-primary btn-main"  %>
+    </div>
 </div>
-

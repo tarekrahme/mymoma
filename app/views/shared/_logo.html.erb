@@ -1,9 +1,9 @@
-<div class="navbar d-flex justify-content-between">
+<div class="navbar d-flex justify-content-between" style="background-color: <%= params[:controller] == 'wallets' && params[:action] == 'show' ? '#D0EBF4' : ''; %>">
   <%= link_to profile_path do %>
     <%= cl_image_tag current_user&.photo, class:"avatar ml-2"%>
   <% end %>
   <%= link_to destroy_user_session_path, method: :delete do %>
-    <%= image_tag 'mymoma.png', class:"small-logo" %>
+    <%= image_tag 'my-moma-transparent.png', class:"small-logo" %>
     <% end %>
 
 </div>
