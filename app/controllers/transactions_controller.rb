@@ -19,6 +19,7 @@ class TransactionsController < ApplicationController
     day = Day.find_by(date: transaction_params["day"]) || Day.create(date: transaction_params["day"], wallet: current_user.wallet, goal: current_user.wallet.goal)
     @transaction.day = day
     if @transaction.save
+
       redirect_to transactions_path
     else
       render :new
