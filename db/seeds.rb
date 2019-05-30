@@ -31,7 +31,7 @@ puts 'Users created!'
 
 puts "Creating wallets..."
 
-carlotta_wallet = Wallet.create(user: carlotta)
+carlotta_wallet = Wallet.create(user: carlotta, monthly_income_cents: 2000, monthly_saving_cents: 100, fixed_cost_cents: 1000)
 
 luca_wallet = Wallet.create(user: luca)
 
@@ -44,7 +44,7 @@ puts "Wallets created!"
 
 puts "Creating goals..."
 
-holiday = Goal.create(wallet: carlotta_wallet, name: "holiday",amount: 330)
+travel = Goal.create(wallet: carlotta_wallet, name: "travel",amount: 300)
 
 laptop = Goal.create(wallet: luca_wallet, name: "laptop",amount: 800)
 
@@ -57,14 +57,14 @@ puts "Goals created"
 
 puts "Creating days..."
 
-days_ago_7 = Day.create(date: Date.today - 7, wallet: carlotta_wallet, goal: holiday)
-days_ago_6 = Day.create(date: Date.today - 6, wallet: carlotta_wallet, goal: holiday)
-days_ago_5 = Day.create(date: Date.today - 5, wallet: carlotta_wallet, goal: holiday)
-days_ago_4 = Day.create(date: Date.today - 4, wallet: carlotta_wallet, goal: holiday)
-days_ago_3 = Day.create(date: Date.today - 3, wallet: carlotta_wallet, goal: holiday)
-days_ago_2 = Day.create(date: Date.today - 2, wallet: carlotta_wallet, goal: holiday)
-days_ago_1 = Day.create(date: Date.today - 1, wallet: carlotta_wallet, goal: holiday)
-days_ago_0 = Day.create(date: Date.today, wallet: carlotta_wallet, goal: holiday)
+days_ago_7 = Day.create(date: Date.today - 7, wallet: carlotta_wallet, goal: travel)
+days_ago_6 = Day.create(date: Date.today - 6, wallet: carlotta_wallet, goal: travel)
+days_ago_5 = Day.create(date: Date.today - 5, wallet: carlotta_wallet, goal: travel)
+days_ago_4 = Day.create(date: Date.today - 4, wallet: carlotta_wallet, goal: travel)
+days_ago_3 = Day.create(date: Date.today - 3, wallet: carlotta_wallet, goal: travel)
+days_ago_2 = Day.create(date: Date.today - 2, wallet: carlotta_wallet, goal: travel)
+days_ago_1 = Day.create(date: Date.today - 1, wallet: carlotta_wallet, goal: travel)
+days_ago_0 = Day.create(date: Date.today, wallet: carlotta_wallet, goal: travel)
 
 puts "Days created"
 
@@ -87,6 +87,7 @@ carl_trans_3_1 = Transaction.create(wallet: carlotta_wallet, day: days_ago_3, am
 carl_trans_3_2 = Transaction.create(wallet: carlotta_wallet, day: days_ago_3, amount_cents: 700, merchant: "Water")
 carl_trans_3_3 = Transaction.create(wallet: carlotta_wallet, day: days_ago_3, amount_cents: 800, merchant: "Plant")
 carl_trans_3_4 = Transaction.create(wallet: carlotta_wallet, day: days_ago_3, amount_cents: 900, merchant: "Plug")
+
 puts "Transactions created"
 
 
