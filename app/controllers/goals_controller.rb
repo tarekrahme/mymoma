@@ -6,7 +6,6 @@ class GoalsController < ApplicationController
     @months_elapsed = @days_elapsed / 30
     @amount_saved = @months_elapsed * @goal.monthly_contribution
     @progress = @goal.progress
-
   end
 
   def new
