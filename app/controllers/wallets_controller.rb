@@ -13,7 +13,7 @@ class WalletsController < ApplicationController
 
     @transactions = Transaction.where(wallet: @wallet).joins(:day).where(days: { date: Date.today })
     @transactions.each do |transaction|
-      @total_spent += transaction.amount_cents / 100
+      @total_spent += transaction.amount_cents / 100.0
     end
     @daily_remaining = @daily_budget - @total_spent
   end
