@@ -11,9 +11,9 @@ class WalletsController < ApplicationController
       @daily_budget = @weekend_available.round(1)
     end
 
-    @transactions = Transaction.joins(:day).where(days: { date: Date.today })
+    @transactions = Transaction.where(wallet: @wallet).joins(:day).where(days: { date: Date.today })
     @transactions.each do |transaction|
-      @total_spent += transaction.amount_cents / 100.0
+      @total_spent += transaction.amount_cents / 100
     end
     @daily_remaining = @daily_budget - @total_spent
   end
@@ -22,6 +22,8 @@ class WalletsController < ApplicationController
     @wallet = current_user.wallet
   end
 
+
+
   def update
     @wallet.update(wallet_params)
     redirect_to tell_us_a_bit_more_wallets_path
@@ -29,7 +31,7 @@ class WalletsController < ApplicationController
 
   def recommendations
     @available_spend = @wallet.monthly_income_cents - @wallet.savings_cents - @wallet.fixed_cost_cents
-    @available_spend_after_goal = @available_spend - @wallet.goal.monthly_contribution.to_i
+    @available_spend_after_goal = @available_spend - (@wallet.goal&.monthly_contribution&.to_i || 0)
     month = Date.today.month
     year = Date.today.year
     start = Date.parse "1.#{month}.#{year}"
