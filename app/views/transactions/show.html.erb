@@ -1,4 +1,18 @@
-<div class="container">
-  <h2><%= @transaction.merchant %></h2>
-  <h3>£<%= @transaction.amount_cents / 100 %></h3>
+  <br>
+  <br>
+  <br>
+<div class="container transaction-show text-center">
+  <h1>£<%= @transaction.amount_cents / 100 %></h1>
+  <br>
+  <h5>at</h5>
+  <br>
+  <h2> <%= @transaction.merchant %></h2>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <%= link_to 'Edit transaction', edit_transaction_path(@transaction),class:"btn btn-primary btn-main"  %>
+  <%= link_to 'Delete transaction', transaction_path(@transaction), method: :delete, class:"btn btn-primary btn-main"  %>
+  <%= link_to 'All transactions', transactions_path, class:"btn btn-primary btn-main" %>
 </div>

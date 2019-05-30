@@ -13,7 +13,7 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @transaction = Transaction.new(amount_cents: transaction_params["amount_cents"])
+    @transaction = Transaction.new(amount_cents: transaction_params["amount_cents"].to_f * 100)
     @transaction.merchant = transaction_params["merchant"]
     @transaction.wallet = current_user.wallet
     day = Day.find_by(date: transaction_params["day"]) || Day.create(date: transaction_params["day"], wallet: current_user.wallet, goal: current_user.wallet.goal)
@@ -30,8 +30,9 @@ class TransactionsController < ApplicationController
   end
 
   def update
-    @transaction = Transaction.update(transaction_params)
-    if @transaction.save
+    day = Day.find_by(date: transaction_params[:day][:date]) || Day.create(date: transaction_params[:day][:date], wallet: current_user.wallet, goal: current_user.wallet.goal)
+    amount = transaction_params["amount_cents"].to_f
+    if @transaction.update(amount_cents: amount, merchant: transaction_params["merchant"], day: day)
       redirect_to transaction_path(@transaction)
     else
       render :edit
@@ -46,7 +47,7 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:amount_cents, :merchant, :day)
+    params.require(:transaction).permit(:amount_cents, :merchant, :day, day: [:date])
   end
 
   def set_transaction

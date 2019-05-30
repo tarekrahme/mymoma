@@ -1,17 +1,19 @@
 
 
 .circle{
-    width:270px;
-    height:270px;
+    width:280px;
+    height:280px;
     border-radius:50%;
     font-size:40px;
     color: white;
-    line-height:100px;
     text-align:center;
     justify-content: center;
     background: $blue;
-    margin-left: 50px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 35px;
 }
 
 
