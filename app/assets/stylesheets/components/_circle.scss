@@ -1,8 +1,8 @@
 
 
 .circle{
-    width:280px;
-    height:280px;
+    width:230px;
+    height:230px;
     border-radius:50%;
     font-size:40px;
     color: white;
@@ -13,10 +13,46 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 35px;
+    margin: auto;
 }
 
 
 .large-writing{
   font-size: 60px;
+}
+
+.circle-container {
+  background: #D0EBF4;
+}
+
+.wallet-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-flex {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-logo {
+  position: relative;
+  padding-top: 80px;
+}
+
+.landing-container {
+  height: 487px;
+  background-color: #D0EBF4;
+}
+
+.logo-text {
+  position: absolute;
+  bottom: 0;
+  right: 30px;
+  font-weight: bold;
+  margin: 0;
 }
