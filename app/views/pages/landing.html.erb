@@ -1,7 +1,13 @@
+<div class="landing-container">
+  <div class="container">
+    <div class="landing-logo">
+     <%= image_tag "my-moma-transparent.png", alt: "LOGO", width: 350, class:"main-logo"%>
+     <p class="logo-text">Budgeting made easy.</p>
+   </div>
+  </div>
+</div>
 <div class="container">
-  <%= image_tag "mymoma.png", alt: "LOGO", width: 350, class:"main-logo"%>
-  <div class="d-flex flex-column " style="margin-top: 200px">
-    <p>Budgeting maade easy.</p>
+  <div class="d-flex flex-column align-icenter" style="margin-top: 90px">
     <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-main" %>
 
     <%= link_to "Sign in", new_user_session_path, class: "btn btn-primary btn-main" %></div>
