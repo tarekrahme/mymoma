@@ -2,7 +2,7 @@ class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
 
   def index
-    @transactions = Transaction.joins(:day).where(days: { date: Date.today })
+    @transactions = Transaction.joins(:day).where(days: { date: Date.today }, wallet: current_user.wallet)
   end
 
   def show
