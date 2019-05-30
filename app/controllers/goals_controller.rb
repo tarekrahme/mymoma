@@ -2,6 +2,11 @@ class GoalsController < ApplicationController
   before_action :set_goal, only: [:show, :edit, :update, :destroy]
 
   def show
+    @days_elapsed = ((Time.now - @goal.created_at) / 864000)
+    @months_elapsed = @days_elapsed / 30
+    @amount_saved = @months_elapsed * @goal.monthly_contribution
+    @progress = @goal.progress
+
   end
 
   def new
