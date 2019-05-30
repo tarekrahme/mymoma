@@ -1,14 +1,32 @@
 import Chart from "chart.js"
 import "chart.js/dist/Chart.min.css"
 
+const transactionsData = JSON.parse(document.getElementById('transactions-data').dataset.transactions);
+const today = new Date().getDay();
+
+const days = JSON.parse(document.getElementById('transactions-data').dataset.days);
+const data = []
+
+const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+const daysOnAxis = []
+
+
+days.forEach((day) => {
+  data.push(transactionsData[day])
+  daysOnAxis.push(weekdays[day])
+});
+
+console.log(data);
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        labels: daysOnAxis,
         datasets: [{
-            label: '# of Votes',
-            data: [1, 3, 3, 5, -8, -4, 1],
+            label: 'Amount spent',
+            data: data,
             backgroundColor: [
                 'rgba(54, 162, 235, 1)',
                 'rgba(54, 162, 235, 1)',

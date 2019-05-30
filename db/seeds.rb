@@ -19,11 +19,8 @@ puts 'Database cleaned!'
 puts 'Creating categories...'
 
 carlotta = User.create(email: "carlotta@gmail.com", password: "123456", first_name: "Carlotta", last_name: "Da Silva")
-
 luca = User.create(email: "luca@gmail.com", password: "123456", first_name: "Luca", last_name: "Kuhn")
-
 tarek = User.create(email: "tarek@gmail.com", password: "123456", first_name: "Tarek", last_name: "Rahme")
-
 tjiani = User.create(email: "tjiani@gmail.com", password: "123456", first_name: "Tjiani", last_name: "Fulani")
 
 puts 'Users created!'
@@ -31,26 +28,20 @@ puts 'Users created!'
 
 puts "Creating wallets..."
 
-carlotta_wallet = Wallet.create(user: carlotta, monthly_income_cents: 2000, saving_cents: 100, fixed_cost_cents: 1000)
-
-luca_wallet = Wallet.create(user: luca)
-
-tarek_wallet = Wallet.create(user: tarek)
-
-tjiani_wallet = Wallet.create(user: tjiani)
+carlotta_wallet = Wallet.create(user: carlotta, monthly_income_cents: 2000, savings_cents: 100, fixed_cost_cents: 1000)
+luca_wallet = Wallet.create(user: luca, monthly_income_cents: 2100, savings_cents: 100, fixed_cost_cents: 900)
+tarek_wallet = Wallet.create(user: tarek, monthly_income_cents: 1900, savings_cents: 50, fixed_cost_cents: 900)
+tjiani_wallet = Wallet.create(user: tjiani, monthly_income_cents: 2300, savings_cents: 150, fixed_cost_cents: 1000)
 
 puts "Wallets created!"
 
 
 puts "Creating goals..."
 
-travel = Goal.create(wallet: carlotta_wallet, name: "travel",amount: 300)
-
-laptop = Goal.create(wallet: luca_wallet, name: "laptop",amount: 800)
-
-house = Goal.create(wallet: tarek_wallet, name: "house",amount: 300000)
-
-ring = Goal.create(wallet: tjiani_wallet, name: "ring",amount: 240)
+travel = Goal.create(wallet: carlotta_wallet, name: "travel",amount: 300, completion_date: Date.today + 100)
+laptop = Goal.create(wallet: luca_wallet, name: "laptop",amount: 800, completion_date: Date.today + 100)
+house = Goal.create(wallet: tarek_wallet, name: "house",amount: 300000, completion_date: Date.today + 100)
+ring = Goal.create(wallet: tjiani_wallet, name: "ring",amount: 240, completion_date: Date.today + 100)
 
 puts "Goals created"
 
@@ -87,6 +78,22 @@ carl_trans_3_1 = Transaction.create(wallet: carlotta_wallet, day: days_ago_3, am
 carl_trans_3_2 = Transaction.create(wallet: carlotta_wallet, day: days_ago_3, amount_cents: 700, merchant: "Water")
 carl_trans_3_3 = Transaction.create(wallet: carlotta_wallet, day: days_ago_3, amount_cents: 800, merchant: "Plant")
 carl_trans_3_4 = Transaction.create(wallet: carlotta_wallet, day: days_ago_3, amount_cents: 900, merchant: "Plug")
+carl_trans_4_1 = Transaction.create(wallet: carlotta_wallet, day: days_ago_4, amount_cents: 100, merchant: "Eat")
+carl_trans_4_2 = Transaction.create(wallet: carlotta_wallet, day: days_ago_4, amount_cents: 200, merchant: "Water")
+carl_trans_4_3 = Transaction.create(wallet: carlotta_wallet, day: days_ago_4, amount_cents: 800, merchant: "Coffee")
+carl_trans_4_4 = Transaction.create(wallet: carlotta_wallet, day: days_ago_4, amount_cents: 600, merchant: "Book")
+carl_trans_5_1 = Transaction.create(wallet: carlotta_wallet, day: days_ago_5, amount_cents: 300, merchant: "Tea")
+carl_trans_5_2 = Transaction.create(wallet: carlotta_wallet, day: days_ago_5, amount_cents: 250, merchant: "Dog")
+carl_trans_5_3 = Transaction.create(wallet: carlotta_wallet, day: days_ago_5, amount_cents: 850, merchant: "Drink")
+carl_trans_5_4 = Transaction.create(wallet: carlotta_wallet, day: days_ago_5, amount_cents: 550, merchant: "Paper")
+carl_trans_6_1 = Transaction.create(wallet: carlotta_wallet, day: days_ago_6, amount_cents: 400, merchant: "Bottle")
+carl_trans_6_2 = Transaction.create(wallet: carlotta_wallet, day: days_ago_6, amount_cents: 450, merchant: "Wood")
+carl_trans_6_3 = Transaction.create(wallet: carlotta_wallet, day: days_ago_6, amount_cents: 450, merchant: "Cat")
+carl_trans_6_4 = Transaction.create(wallet: carlotta_wallet, day: days_ago_6, amount_cents: 450, merchant: "Car")
+carl_trans_7_1 = Transaction.create(wallet: carlotta_wallet, day: days_ago_7, amount_cents: 400, merchant: "Bottle")
+carl_trans_7_2 = Transaction.create(wallet: carlotta_wallet, day: days_ago_7, amount_cents: 450, merchant: "Wood")
+carl_trans_7_3 = Transaction.create(wallet: carlotta_wallet, day: days_ago_7, amount_cents: 450, merchant: "Cat")
+carl_trans_7_4 = Transaction.create(wallet: carlotta_wallet, day: days_ago_7, amount_cents: 450, merchant: "Car")
 
 puts "Transactions created"
 
