@@ -29,7 +29,7 @@
   </head>
   <body>
 
-    <% unless action_name == 'landing' %>
+    <% unless action_name == 'landing' || controller_name == 'registrations' || controller_name == 'sessions' %>
       <%= render 'shared/logo' %>
     <% end %>
     <%= render 'shared/flashes' %>

@@ -1,19 +1,23 @@
 <div class="container">
   <h1><%= current_user.wallet.goal.name.capitalize %></h1>
+  <%= link_to 'Edit goal', edit_goal_path(@goal), class:'btn btn-primary btn-main'  %>
+  <a href="#" class="btn btn-primary btn-main">Press to book</a>
   <div class="background-image" style="height: 250; background-image: url(<%= @goal.picture.file ? (cl_image_path @goal.picture, crop: :fill) : 'https://images.unsplash.com/photo-1506666823169-bafe353bae96?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80' %>);
              height: 400px; background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
 
   <br>
   <div class="progress">
-    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: <%= @progress %>%" aria-valuenow="25" aria-valuemin="" aria-valuemax="100"></div>
+    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: <%= (@progress/ @goal.amount_cents)*100 %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
   <div class="goal-amount">
 
     <p>
       £ <%= @goal.amount %>
     </p>
+    <p>You saved: £<%= (@goal.progress/100).round(1) %> or <%= (@progress/ @goal.amount_cents).round(3) *100 %>% of your goal </p>
+    <p>Completion date: <%= @goal.completion_date %></p>
+    <p>Monthly contribution: <%= @goal.monthly_contribution %></p>
   </div>
   <br>
-  <a href="#" class="btn btn-primary btn-main">Press to book</a>
 
 </div>

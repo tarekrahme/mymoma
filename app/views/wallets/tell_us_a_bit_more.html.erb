@@ -9,7 +9,7 @@
   <p>Available to spend: <%= @wallet.monthly_income_cents - @wallet.savings_cents - @wallet.fixed_cost_cents %> </p>
 
 
-
   <%= f.submit "Calculate your disposable income", class: "btn btn-primary"%>
   <%= link_to 'Get Recommendations', recommendations_wallets_path, class: "btn btn-success" %>
+
 <% end %>
