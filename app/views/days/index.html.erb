@@ -23,15 +23,17 @@
 
     <div class="stat text-center">
       <p>Avg Expense/ Day</p>
-      <div class="font-weight-bold">£19</div>
+      <div class="font-weight-bold"><%= ((@results.values.sum).to_f / 7).round(1) %></div>
     </div>
 
     <div class="stat text-center">
       <p>Target</p>
-      <div class="font-weight-bold">£21</div>
+      <div class="font-weight-bold">For a weekday: £<%= @weekday_available.round(1) %></div>
+      <div class="font-weight-bold">For a weekend: £<%= @weekend_available.round(1) %></div>
+
+
     </div>
   </div>
-
 
 
 </div>
