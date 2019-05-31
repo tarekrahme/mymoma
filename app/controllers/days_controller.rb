@@ -14,6 +14,8 @@ class DaysController < ApplicationController
         @results[transaction_day_of_week] = transaction.amount_cents / 100
       end
     end
+    @weekend_spend = (@results[0] + @results[6]).to_f / 2
+    @weekday_spend = (@results[1] + @results[2] + @results[3] + @results[4] + @results[5]).to_f / 5
   end
 
   def show
