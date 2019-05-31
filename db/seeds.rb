@@ -38,7 +38,7 @@ puts "Wallets created!"
 
 puts "Creating goals..."
 
-travel = Goal.create(wallet: carlotta_wallet, name: "travel",amount: 300, completion_date: Date.today + 100)
+# travel = Goal.create(wallet: carlotta_wallet, name: "travel",amount: 300, completion_date: Date.today + 100)
 laptop = Goal.create(wallet: luca_wallet, name: "laptop",amount: 800, completion_date: Date.today + 100)
 house = Goal.create(wallet: tarek_wallet, name: "house",amount: 300000, completion_date: Date.today + 100)
 ring = Goal.create(wallet: tjiani_wallet, name: "ring",amount: 240, completion_date: Date.today + 100)
@@ -48,14 +48,14 @@ puts "Goals created"
 
 puts "Creating days..."
 
-days_ago_7 = Day.create(date: Date.today - 7, wallet: carlotta_wallet, goal: travel)
-days_ago_6 = Day.create(date: Date.today - 6, wallet: carlotta_wallet, goal: travel)
-days_ago_5 = Day.create(date: Date.today - 5, wallet: carlotta_wallet, goal: travel)
-days_ago_4 = Day.create(date: Date.today - 4, wallet: carlotta_wallet, goal: travel)
-days_ago_3 = Day.create(date: Date.today - 3, wallet: carlotta_wallet, goal: travel)
-days_ago_2 = Day.create(date: Date.today - 2, wallet: carlotta_wallet, goal: travel)
-days_ago_1 = Day.create(date: Date.today - 1, wallet: carlotta_wallet, goal: travel)
-days_ago_0 = Day.create(date: Date.today, wallet: carlotta_wallet, goal: travel)
+days_ago_7 = Day.create(date: Date.today - 7, wallet: carlotta_wallet)
+days_ago_6 = Day.create(date: Date.today - 6, wallet: carlotta_wallet)
+days_ago_5 = Day.create(date: Date.today - 5, wallet: carlotta_wallet)
+days_ago_4 = Day.create(date: Date.today - 4, wallet: carlotta_wallet)
+days_ago_3 = Day.create(date: Date.today - 3, wallet: carlotta_wallet)
+days_ago_2 = Day.create(date: Date.today - 2, wallet: carlotta_wallet)
+days_ago_1 = Day.create(date: Date.today - 1, wallet: carlotta_wallet)
+days_ago_0 = Day.create(date: Date.today, wallet: carlotta_wallet)
 
 puts "Days created"
 
