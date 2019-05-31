@@ -3,6 +3,7 @@ class TransactionsController < ApplicationController
 
   def index
     @transactions = Transaction.joins(:day).where(days: { date: Date.today }, wallet: current_user.wallet)
+    @transactions_yesterday = Transaction.joins(:day).where(days: { date: Date.today - 1 }, wallet: current_user.wallet)
   end
 
   def show
