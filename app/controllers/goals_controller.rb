@@ -15,9 +15,10 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
+    @goal.amount_cents = params[:goal][:amount_cents].to_i * 100
     @wallet = current_user.wallet
     @goal.wallet = @wallet
-    @goal.monthly_contribution = @goal.amount / (@goal.completion_date.month - Date.today.month)
+    @goal.monthly_contribution = (@goal.amount_cents.to_i) / (@goal.completion_date.month - Date.today.month) / 100
     if @goal.save
       redirect_to goal_path(@goal)
     else
@@ -29,8 +30,9 @@ class GoalsController < ApplicationController
   end
 
   def update
-    @goal = Goal.update(goal_params)
-    if @goal.save
+    if @goal.update(goal_params)
+      @goal.monthly_contribution = @goal.amount / (@goal.completion_date.month - Date.today.month)
+      @goal.save
       redirect_to goal_path(@goal)
     else
       render :edit
@@ -44,7 +46,7 @@ class GoalsController < ApplicationController
   private
 
   def goal_params
-    params.require(:goal).permit(:name, :amount, :buffer, :picture, :link, :completion_date)
+    params.require(:goal).permit(:name, :amount_cents, :buffer, :picture, :link, :completion_date)
   end
 
   def set_goal

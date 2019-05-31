@@ -8,9 +8,9 @@ class AddMonthlySavingJob < ApplicationJob
     today_type = Date.today.wday.to_i
     recommendations(wallet)
     if today_type > 0 && today_type < 6
-      @daily_budget = @weekday_available.round(1)
+      @daily_budget = @weekday_available.round(1) * 100
     else
-      @daily_budget = @weekend_available.round(1)
+      @daily_budget = @weekend_available.round(1) * 100
     end
     @transactions = Transaction.where(wallet: wallet).joins(:day).where(days: { date: Date.today })
     @transactions.each do |transaction|
@@ -21,7 +21,7 @@ class AddMonthlySavingJob < ApplicationJob
     wallet.save
 
     goal = wallet.goal
-    goal.progress += (@daily_remaining / goal.amount_cents)
+    goal.progress += @daily_remaining
     goal.save
   end
 

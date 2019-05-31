@@ -22,8 +22,6 @@ class WalletsController < ApplicationController
     @wallet = current_user.wallet
   end
 
-
-
   def update
     @wallet.update(wallet_params)
     redirect_to tell_us_a_bit_more_wallets_path

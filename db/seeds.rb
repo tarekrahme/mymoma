@@ -31,7 +31,7 @@ puts 'Users created!'
 
 puts "Creating wallets..."
 
-carlotta_wallet = Wallet.create(user: carlotta, monthly_income_cents: 2000, monthly_saving_cents: 100, fixed_cost_cents: 1000)
+carlotta_wallet = Wallet.create(user: carlotta, monthly_income_cents: 2000, saving_cents: 100, fixed_cost_cents: 1000)
 
 luca_wallet = Wallet.create(user: luca)
 
