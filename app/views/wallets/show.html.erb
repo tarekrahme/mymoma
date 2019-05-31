@@ -1,13 +1,17 @@
 <div class="wallet-wrapper" style="height: calc(100vh - 132px);">
 
-
     <div class="circle-container">
-      <div class="container" style="padding-bottom: 15px;">
-        <h2 class="p-4 text-center">Hi <%= @wallet.user.first_name %>!</h2>
+      <div class="container" style="padding-bottom: 8px;">
         <div style="margin: 50px;">
           <div class="circle tex">
             <div class="circle-info">
-              <div class="large-writing">£ <%= @daily_remaining.round(1) %> </div>
+              <div class="large-writing">
+                <% if @daily_remaining>= 0 %>
+                  £ <%= @daily_remaining.round(1) %>
+                <% else %>
+                  £ <%= 0 %>
+                <% end %>
+              </div>
               <div style="font-size: 20px;">Remaining</div>
             </div>
           </div>
@@ -17,18 +21,25 @@
 
 
     <div class="container info-flex">
-      <div class="little-card">
+      <div class="little-card p-3 shadow">
         <div class="">
+          <%= link_to transactions_path do %>
           <div class="card-info">
             <h2 class="font-weight-bold text-center" style="font-size:20px;">Money spent today: </h2><div class="text-center" style="font-size:30px;">£<%= @total_spent %></div>
             <% if @total_spent <= @daily_budget %>
               <p class="text-center">You are within your daily budget 👍🏼</p>
             <% else %>
-              <p class="text-center">You have exceeded your budget for the day 👎🏼</p>
+              <p class="text-center">You have exceeded your budget by £<%= -1 * @daily_remaining.round(1) %> for the day 👎🏼</p>
             <% end %>
           </div>
         </div>
+        <% end %>
+          </div>
+          <div class="btn-add mt-4">
+            <%= link_to "+", new_transaction_path, class:"btn-add" %>
       </div>
-      <%= link_to "View transactions", transactions_path, class:"btn btn-primary btn-main"  %>
     </div>
 </div>
+
+
+<div id="transactions-data" data-days="<%= @wallet.days.to_json %>" data-transactions="<%= @results.to_json %>"></div>

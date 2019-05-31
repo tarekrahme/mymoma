@@ -1,13 +1,18 @@
 <div class="container text-center">
   <h1>Recommendations</h1>
   <br>
-  <h2>Available to spend this month: <br> £<%= @available_spend %></h2>
+  <div class="border border-lg-radius p-3 shadow">
+    <h1> £<%= @available_spend %></h1>
+    <h4> Available to spend this month </h4>
+  </div>
   <br>
   <br>
-  <h3>Weekday daily spend: <br> £<%= @weekday_available.round(1) %></h3>
-  <br>
-  <h3>Weekend daily spend: <br> £<%= @weekend_available.round(1) %></h3>
-  <br>
+  <div class="border border-lg-radius p-3 shadow">
+    <h2> £<%= @weekday_available.round(1) %></h2>
+    <h4> Weekday daily spend </h4>
+    <h2> £<%= @weekend_available.round(1) %></h2>
+    <h4> Weekend daily spend </h4>
+  </div>
   <br>
   <br>
   <br>
