@@ -1,23 +1,24 @@
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <%= link_to days_path do %>
-      <i class="fas fa-chart-line"></i>
+      <i class="fas fa-chart-line navbar-item <%= current_page?(controller: 'days')? 'active' : '' %>"></i>
     <% end %>
     <% if user_signed_in? %>
       <%= link_to wallet_path(current_user.wallet) do %>
-        <i class="fas fa-wallet"></i>
+        <i class="fas fa-wallet navbar-item <%= (params[:controller] == 'wallets' && params[:action] == 'show') ? 'active' : '' %>"></i>
       <% end %>
     <% end %>
     <% if current_user&.wallet&.goal %>
       <%= link_to goal_path(current_user.wallet.goal) do %>
-        <i class="fas fa-bullseye"></i>
+        <i class="fas fa-bullseye navbar-item <%= (params[:controller] == 'goals' && params[:action] == 'show') ? 'active' : '' %>"></i>
       <% end %>
     <% else %>
       <%= link_to new_goal_path do %>
-        <i class="fas fa-bullseye"></i>
+        <i class="fas fa-bullseye navbar-item <%= (params[:controller] == 'goals' && params[:action] == 'new') ? 'active' : '' %>"></i>
       <% end %>
     <% end %>
     <%= link_to recommendations_wallets_path do %>
-      <i class="far fa-question-circle"></i>
+      <i class="far fa-question-circle navbar-item <%= (params[:controller] == 'wallets' && params[:action] == 'recommendations') ? 'active' : '' %>"></i>
     <% end %>
 
   </div>
+

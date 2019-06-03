@@ -2,7 +2,7 @@
 
     <div class="circle-container">
       <div class="container" style="padding-bottom: 8px;">
-        <div style="margin: 50px;">
+        <div style="margin-bottom: 20px;">
           <div class="circle tex">
             <div class="circle-info">
               <div class="large-writing">
@@ -17,11 +17,40 @@
           </div>
         </div>
       </div>
+      <%= link_to "+", new_transaction_path, class:"btn-add" %>
     </div>
 
+    <div class="slick-carousel">
+      <% @transactions.each do |transaction|%>
+        <div class="center-items">
+          <%= link_to transaction_path(transaction) do %>
+            <div class="item-info">
+              <p class="text-center font-weight-bold"><%= transaction.merchant %></p>
+              <% case transaction.merchant %>
+                <% when "Bakery" %>
+                  <p style="text-align: center; font-size: 50px; margin: 0">🥐</p>
+                <% when "Eat" %>
+                  <p style="text-align: center; font-size: 50px; margin: 0">🍌</p>
+                <% when "Pharmacy" %>
+                  <p style="text-align: center; font-size: 50px; margin: 0">💊</p>
+                <% when "Pret" %>
+                  <p style="text-align: center; font-size: 50px; margin: 0">🥗</p>
+                <% when "Book" %>
+                  <p style="text-align: center; font-size: 50px; margin: 0">📚</p>
+                <% when "Water" %>
+                  <p style="text-align: center; font-size: 50px; margin: 0">💦</p>
+                <% when "Plant" %>
+                  <p style="text-align: center; font-size: 50px; margin: 0">🌱</p>
+              <% end %>
+              <p class="text-center">£<%= transaction.amount_cents / 100.0 %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
 
     <div class="container info-flex">
-      <div class="little-card p-3 shadow">
+      <div class="little-card p-3">
         <div class="">
           <%= link_to transactions_path do %>
           <div class="card-info">
@@ -33,13 +62,13 @@
             <% end %>
           </div>
         </div>
-        <% end %>
-          </div>
-          <div class="btn-add mt-4">
-            <%= link_to "+", new_transaction_path, class:"btn-add" %>
-      </div>
+      <% end %>
     </div>
+   </div>
 </div>
 
 
 <div id="transactions-data" data-days="<%= @wallet.days.to_json %>" data-transactions="<%= @results.to_json %>"></div>
+<%= content_for(:after_js) do %>
+<%= javascript_pack_tag 'slick_carousel' %>
+<% end %>

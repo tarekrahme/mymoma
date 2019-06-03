@@ -1,0 +1,21 @@
+.slick-carousel {
+  display: flex;
+  width: 90vw;
+  margin: 20px auto;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+
+.center-items {
+  display: flex !important;
+  justify-content: center;
+  &:focus {
+    outline: none !important;
+  }
+  a:focus {
+    outline: none !important;
+    text-decoration: none;
+  }
+}
