@@ -1,10 +1,15 @@
 <div class="navbar d-flex justify-content-between" style="background-color: <%= params[:controller] == 'wallets' && params[:action] == 'show' ? '#edf1fe' : ''; %>">
+
   <%= link_to profile_path do %>
-    <%= cl_image_tag current_user&.photo, class:"avatar ml-2"%>
+    <% if current_user.photo.url %>
+      <%= cl_image_tag current_user&.photo, class:"avatar ml-2"%>
+    <% else %>
+      <p class="avatar pt-2 bg-primary text-white text-center align-middle font-weight-bold"> <%= current_user.first_name.first.capitalize %></p>
+    <% end %>
   <% end %>
   <%= link_to destroy_user_session_path, method: :delete do %>
     <%= image_tag 'my-moma-transparent.png', class:"small-logo" %>
-    <% end %>
+  <% end %>
 
 </div>
 
