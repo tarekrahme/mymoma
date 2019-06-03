@@ -2,6 +2,7 @@ class WalletsController < ApplicationController
   before_action :set_wallet, only: [:show, :update, :recommendations]
 
   def show
+    @transactions = Transaction.last(5)
     @total_spent = 0.0
     today_type = Date.today.wday.to_i
     recommendations

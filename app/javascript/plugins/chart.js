@@ -7,7 +7,7 @@ const today = new Date().getDay();
 const days = JSON.parse(document.getElementById('transactions-data').dataset.days);
 const data = []
 
-const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+const weekdays = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
 
 const daysOnAxis = []
 
@@ -19,42 +19,45 @@ days.forEach((day) => {
 
 console.log(data);
 
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: daysOnAxis,
-        datasets: [{
-            label: 'Amount spent',
-            data: data,
-            backgroundColor: [
-                'rgb(41, 81, 135)',
-                'rgb(41, 81, 135)',
-                'rgb(41, 81, 135)',
-                'rgb(41, 81, 135)',
-                'rgb(41, 81, 135)',
-                'rgb(41, 81, 135)',
-                'rgb(41, 81, 135)'
-            ],
-            borderColor: [
-                'rgb(41, 81, 135)',
-                'rgb(41, 81, 135)',
-                'rgb(41, 81, 135)',
-                'rgb(41, 81, 135)',
-                'rgb(41, 81, 135)',
-                'rgb(41, 81, 135)',
-                'rgb(41, 81, 135)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
+var ctx = document.getElementById('myChart');
+if (ctx) {
+  var ctxChart = ctx.getContext('2d');
+  var myChart = new Chart(ctxChart, {
+      type: 'bar',
+      data: {
+          labels: daysOnAxis,
+          datasets: [{
+              label: 'Amount spent',
+              data: data,
+              backgroundColor: [
+                  '#406aec',
+                  '#406aec',
+                  '#406aec',
+                  '#406aec',
+                  '#406aec',
+                  '#406aec',
+                  '#406aec'
+              ],
+              borderColor: [
+                  '#406aec',
+                  '#406aec',
+                  '#406aec',
+                  '#406aec',
+                  '#406aec',
+                  '#406aec',
+                  '#406aec'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+  });
+}
