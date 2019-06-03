@@ -1,34 +1,46 @@
 <% logos = ["💰", "💳", "💸", "💶", "🏧", "💲"] %>
 
 <div class="container">
-  <h1 class="my-4 text-center">Transactions <i class="fas fa-pound-sign"></i></h1>
+  <h1 class="my-4 text-center transactions_title">Transactions</h1>
   <div class="transactions-box w-100">
-    <div class="btn-add">
+    <div class="btn-add" style="position: absolute; top: 122px; right:15px;">
       <%= link_to "+", new_transaction_path, class:"btn-add" %>
     </div>
+    <h3 class="my-4 text-center">Today:</h3>
     <% @transactions.each do |transaction| %>
       <%= link_to transaction_path(transaction) do %>
         <div class="transaction_list_item d-flex display-inline justify-content-between my-3 py-2 px-3">
-          <h4 class = ""> <%= logos.sample %>  <%= transaction.merchant %></h4>
-          <h4 class="">£<%= transaction.amount_cents / 100.0 %></h4>
+          <h4 class = "font-weight-light"> <%= logos.sample %>  <%= transaction.merchant.capitalize %></h4>
+          <h4 class="font-weight-light">£<%= transaction.amount_cents / 100.0 %></h4>
         </div>
       <% end %>
     <% end %>
   </div>
   <% if @transactions_yesterday %>
-  <h3 class="my-4 text-center">Yesterday:</h3>
+  <h3 class="my-4 text-center"> <%=  (Date.today-1).strftime('%a %d %b')%></h3>
   <div class="transactions-box w-100">
     <% @transactions_yesterday.each do |transaction| %>
       <%= link_to transaction_path(transaction) do %>
         <div class="transaction_list_item d-flex display-inline justify-content-between my-3 py-2 px-3">
-          <h4 class = ""><%= logos.sample %>  <%= transaction.merchant %></h4>
-          <h4 class="">£<%= transaction.amount_cents / 100.0 %></h4>
+          <h4 class="font-weight-light"><%= logos.sample %>  <%= transaction.merchant.capitalize %></h4>
+          <h4 class="font-weight-light">£<%= transaction.amount_cents / 100.0 %></h4>
         </div>
       <% end %>
     <% end %>
   </div>
     <% end %>
-  <br>
-  <%= link_to "Dashboard", root_path, class:"btn btn-primary btn-main" %>
+      <% if @transactions_2days %>
+  <h3 class="my-4 text-center"><%= (Date.today-2).strftime('%a %d %b') %></h3>
+  <div class="transactions-box w-100">
+    <% @transactions_2days.each do |transaction| %>
+      <%= link_to transaction_path(transaction) do %>
+        <div class="transaction_list_item d-flex display-inline justify-content-between my-3 py-2 px-3">
+          <h4 class="font-weight-light"><%= logos.sample %>  <%= transaction.merchant.capitalize %></h4>
+          <h4 class="font-weight-light">£<%= transaction.amount_cents / 100.0 %></h4>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+    <% end %>
 </div>
 

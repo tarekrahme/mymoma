@@ -1,13 +1,12 @@
-<div class="container">
-  <h1>Edit transaction</h1>
+<div class="container mt-4">
+  <h1 div class="mb-4">Edit goal</h1>
   <%= simple_form_for(@goal) do |f| %>
     <div class="form-inputs">
       <%= f.input :name %>
-      <%= f.input :amount_cents, label: "Amount (£)" %>
-      <%= f.input :completion_date, as: :date %>
-
-   <div class="form-actions">
-        <%= f.button :submit, "Update goal", class:"btn btn-primary" %>
+      <%= f.input :amount_cents, label: "Amount (£)", value: @goal.amount_cents/100 %>
+      <%= f.input :completion_date, as: :date, discard_day: true, order: [:month, :year] %>
+   <div class="form-actions mt-5">
+        <%= f.button :submit, "Update goal", class:"btn btn-primary btn-main" %>
     </div>
   <% end %>
   </div>

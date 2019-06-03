@@ -4,7 +4,7 @@
     <div class="form-inputs">
       <%= f.input :merchant %>
       <%= f.input :amount_cents, label: "Amount (£)" %>
-      <%= f.simple_fields_for @transaction.day do |t| %>
+      <%= f.simple_fields_for :day, @transaction.day do |t| %>
         <%= t.input :date, as: :string, input_html: { class: 'datepicker' } %>
       <% end %>
     </div>
