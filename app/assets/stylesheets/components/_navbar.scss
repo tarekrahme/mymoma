@@ -5,9 +5,23 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  font-size: 40px;
+  font-size: 30px;
   display: flex;
+  color: #E8E8E8 !important;
+  border-top: 1px solid $light-blue;
+  padding: 15px auto;
 }
+
+.navbar-item {
+  color: $light-blue;
+  &:active{
+    color: $blue;
+  };
+}
+
+.active{
+  color: $blue;
+};
 
 .navbar-logo {
   justify-content: space-between;

@@ -22,7 +22,8 @@
 }
 
 .circle-container {
-  background: #D0EBF4;
+  background: $light-blue;
+  position: relative;
 }
 
 .wallet-wrapper {
@@ -46,7 +47,7 @@
 
 .landing-container {
   height: 487px;
-  background-color: #D0EBF4;
+  background-color: $light-blue;
 }
 
 .logo-text {
