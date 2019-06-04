@@ -1,0 +1,16 @@
+<div>
+  <h3>Tuesday, 04 June</h3>
+  <h2>Welcome back 👋🏼</h2>
+</div>
+
+<div>
+  <h3>
+    You have
+    <% if @daily_remaining>= 0 %>
+      £ <%= @daily_remaining.round(1) %>
+    <% else %>
+      £ <%= 0 %>
+    <% end %>
+    left for today!
+  </h3>
+</div>

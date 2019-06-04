@@ -1,14 +1,20 @@
-<div class="navbar d-flex justify-content-between" style="background-color: <%= params[:controller] == 'wallets' && params[:action] == 'show' ? '#edf1fe' : ''; %>">
+<div class="navbar d-flex justify-content-between" style="height: 60px;background-color: <%= params[:controller] == 'goals' && params[:action] == 'show' ? '#406AEC' : 'white'; %>">
 
   <%= link_to profile_path do %>
     <% if current_user.photo.url %>
-      <%= cl_image_tag current_user&.photo, class:"avatar ml-2"%>
+      <%= cl_image_tag current_user&.photo, class:"avatar ml-2 avatar-border"%>
     <% else %>
       <p class="avatar pt-2 bg-primary text-white text-center align-middle font-weight-bold"> <%= current_user.first_name.first.capitalize %></p>
     <% end %>
   <% end %>
-  <%= link_to destroy_user_session_path, method: :delete do %>
-    <%= image_tag 'my-moma-transparent.png', class:"small-logo" %>
+  <% if  params[:controller] == 'goals' && params[:action] == 'show' %>
+    <%= link_to destroy_user_session_path, method: :delete do %>
+      <%= image_tag "white_logo.png", class:"small-logo" %>
+    <% end %>
+  <% else %>
+    <%= link_to destroy_user_session_path, method: :delete do %>
+      <%= image_tag "blue_logo.png", class:"small-logo" %>
+    <% end %>
   <% end %>
 
 </div>

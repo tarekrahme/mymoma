@@ -1,14 +1,14 @@
 
 
 .circle{
-    width:230px;
-    height:230px;
-    border-radius:50%;
+    width:300px;
+    height:120px;
+    border-radius:10px;
     font-size:40px;
-    color: white;
-    text-align:center;
-    justify-content: center;
-    background: $blue;
+    color: $blue;
+    position:absolute;
+    bottom: -40px;
+    background: $light-blue;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     align-items: center;

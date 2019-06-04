@@ -1,26 +1,35 @@
 .btn-main {
   margin: 10px auto;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 10px;
+  border-radius: 30px;
   background-color: $blue;
-  height: 50px;
-  width: 90%;
+  height: 60px;
+  width: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .btn-add{
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
   height: 50px;
   width: 50px;
-  background-color: $blue;
-  color: white;
+  margin-left: -25px;
+  color: $blue;
+  background-color: rgba(15, 65, 218, 1);
   border-radius: 50%;
   font-size: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.btn-add-absolute {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+}
+
+.btn-smaller {
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
 }

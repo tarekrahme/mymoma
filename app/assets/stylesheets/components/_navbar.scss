@@ -7,20 +7,20 @@
   width: 100%;
   font-size: 30px;
   display: flex;
-  color: #E8E8E8 !important;
+  color: $blue;
   border-top: 1px solid $light-blue;
   padding: 15px auto;
 }
 
 .navbar-item {
-  color: $light-blue;
+  color: $blue;
   &:active{
-    color: $blue;
+    color: $red;
   };
 }
 
 .active{
-  color: $blue;
+  color: $red;
 };
 
 .navbar-logo {
