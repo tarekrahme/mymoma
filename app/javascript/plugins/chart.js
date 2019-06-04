@@ -52,12 +52,22 @@ if (ctx) {
       },
       options: {
           scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero: true
-                  }
-              }]
+            xAxes: [{
+              gridLines: {
+                  display:false
+              }
+            }],
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                },
+                gridLines: {
+                  display:false
+                }
+            }]
           }
       }
   });
 }
+
+ctx.style.backgroundColor = '#EDF1FE';

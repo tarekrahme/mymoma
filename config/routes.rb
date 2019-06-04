@@ -9,13 +9,13 @@ Rails.application.routes.draw do
   get "/questions", to: "pages#questions"
   get "home", to: "pages#home"
   get 'landing', to: "pages#landing"
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, except: :index
   resources :wallets, only: [:show, :create, :edit, :update ]do
     collection do
       get 'tell_us_a_bit_more', to: 'wallets#tell_us_a_bit_more'
       get 'recommendations', to: 'wallets#recommendations'
+      get 'new_page', to: "wallets#new_page"
     end
   end
   resources :goals, except: :index

@@ -1,37 +1,38 @@
 
 <div class="chart-container">
-  <h1 class="text-center">Your Stats</h1>
-  <canvas id="myChart" width="400" height="400"></canvas>
-</div>
-
-
-<div class="container">
-  <%= link_to "Today's transactions", transactions_path, class:"btn btn-primary btn-main" %>
-</div>
-
-<div class="stats-info d-flex ">
-
-  <div class="stat text-center">
-    <p>Avg weekday expense:</p>
-    <div class="font-weight-bold"> <%= @weekday_spend %></div>
-  </div>
-
-  <div class="stat text-center">
-    <p class= "text-center">Weekday allowance:</p>
-    <div class="font-weight-bold">£<%= @weekday_available.round(1) %></div>
+  <h6 style="margin-left: 20px; margin-bottom: 0px; opacity: 0.3;"><% d = Date.today %>
+    <%= d.strftime("%A, %b %d")%>
+  </h6>
+  <h3 style="margin-left: 20px; opacity: 0.6; border-bottom: 1px solid lightgrey;">Your statistics</h3>
+  <div class="container">
+    <canvas id="myChart" width="600" height="400" class="chart"></canvas>
   </div>
 </div>
 
-<div class="stats-info d-flex ">
+<h5 style="margin-left: 20px; opacity: 0.6;">Your allowance</h5>
+<div class="d-flex ">
 
-  <div class="stat text-center">
-    <p>Avg weekend expense:</p>
-    <div class="font-weight-bold"> <%= @weekend_spend %></div>
+  <div class="stats-info text-center blue-box">
+    <p>During the week</p>
+    <div class="font-weight-bold"> £<%= @weekday_available.round(1)%></div>
   </div>
 
-  <div class="stat text-center">
-    <p class= "text-center">Weekend allowance:</p>
+  <div class=" stats-info text-center red-box">
+    <p class= "text-center">Weekend</p>
     <div class="font-weight-bold">£<%= @weekend_available.round(1) %></div>
+  </div>
+</div>
+<h5 style="margin-left: 20px; opacity: 0.6;">Average expenses</h5>
+<div class="d-flex ">
+
+  <div class="stats-info text-center blue-box">
+    <p>During the week</p>
+    <div class="font-weight-bold"> £<%= @weekday_spend.round(1) %></div>
+  </div>
+
+  <div class="stats-info text-center red-box">
+    <p class= "text-center">Weekend</p>
+    <div class="font-weight-bold">£<%= @weekend_spend.round(1) %></div>
   </div>
 </div>
 

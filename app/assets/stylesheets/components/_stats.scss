@@ -1,15 +1,14 @@
 .stats-info {
   width: 100%;
-  margin: 20px auto;
+  margin: 20px 20px;
   padding: 10px;
-  background: #f5f5f5;
-  box-shadow: 0 0 9px rgba(0,0,0,0.1);
-
-}
-
-.stat {
+  border: 1px solid transparent;
+  border-radius: 5px;
   flex: 1;
+
 }
+
+
 
 .chart-container {
 }
