@@ -1,14 +1,13 @@
 <% logos = ["💰", "💳", "💸", "💶", "🏧", "💲"] %>
 
 <div class="">
-  <h6 style="margin-left: 20px; margin-bottom: 0px; opacity: 0.3;"><% d = Date.today %>
+  <h6 style="margin-left: 24px; margin-bottom: 0px; opacity: 0.3;"><% d = Date.today %>
     <%= d.strftime("%A, %b %d")%>
   </h6>
   <div class="d-flex align-items-center justify-content-between mx-4 pb-2" style="border-bottom: 1px solid lightgrey;">
-    <h3 style="margin: 0; opacity: 0.6;">Transactions</h3>
-    <div class="btn-add btn-smaller">
-        <%= link_to "+", new_transaction_path, class:"text-white" %>
-    </div>
+    <h4 class="font-weight-bold" style="margin-bottom: 10px; opacity: 0.6;">Transactions</h4>
+    <%= link_to "+", new_transaction_path, class:"blue-font", style:"font-size:30px;" %>
+
   </div>
   <div class="transactions-box w-100">
 

@@ -1,8 +1,8 @@
 <div class="wallet-wrapper" style="height: calc(100vh - 118px);">
-<h6 style="margin-left: 30px; margin-bottom: 0px; opacity: 0.3;"><% d = Date.today %>
+<h6 style="margin-left: 20px; margin-bottom: 0px; opacity: 0.3;"><% d = Date.today %>
   <%= d.strftime("%A, %b %d")%>
 </h6>
-<h3 style="margin-left: 30px; opacity: 0.5;">Welcome back 👋🏼</h3>
+<h4 class="font-weight-bold" style="margin-left: 20px; opacity: 0.6;">Welcome back 👋</h4>
     <div class="container" style="position:relative; height: 100px">
       <div class="container" style="padding-bottom: 8px; display: flex; justify-content: space-around">
         <div class="circle">
@@ -23,7 +23,7 @@
 
     <div class=" info-flex blue-background radius-top">
       <div class="box" style="height: 100%; margin-top: 65px; position: relative">
-        <h5 class="mb-3 mt-5">Latest transactions</h5>
+        <h5 class="mb-3 mt-3">Latest transactions</h5>
         <div class="wallet-transactions" style="width: 85vw">
           <% @transactions.each do |transaction| %>
             <div class="">
@@ -50,17 +50,19 @@
                     <% end %>
                     <div>
                       <p class="font-weight-bold no-bottom-margin"><%= transaction.merchant %></p>
-                      <h6 style="opacity: 0.3;"><%= transaction.created_at.strftime("%A, %b %d") %></p>
+                      <h6 style="opacity: 0.3; font-size: 13px;"><%= transaction.created_at.strftime("%A, %b %d") %></p>
                     </div>
                   </div>
-                  <h5 class="red-font">-£<%= transaction.amount_cents / 100.0 %></h5>
+                  <h5 class="white-box">-£<%= transaction.amount_cents / 100.0 %></h5>
                 </div>
               <% end %>
             </div>
           <% end %>
         </div>
         <%= link_to "All transactions", transactions_path, class:"text-right", style:"text-decoration: underline;" %>
-        <%= link_to "+", new_transaction_path, class:"btn-add btn-add-absolute" %>
+        <%= link_to new_transaction_path, class:"btn-add btn-add-absolute" do %>
+          <i style="font-size: 20px; color: white;" class="fas fa-plus"></i>
+        <% end %>
       </div>
     </div>
   </div>
