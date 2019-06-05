@@ -24,6 +24,15 @@ class DaysController < ApplicationController
     else
       @weekday_spend = 0
     end
+    @results[1] = 0 if @results[1].nil?
+    @results[2] = 0 if @results[2].nil?
+    @results[3] = 0 if @results[3].nil?
+    @results[4] = 0 if @results[4].nil?
+    @results[5] = 0 if @results[5].nil?
+    @results[0] = 0 if @results[0].nil?
+    @results[6] = 0 if @results[6].nil?
+    @week_savings = (5 * @weekday_available - (@results[1] + @results[2] + @results[3] + @results[4] + @results[5])) + (2 * @weekend_available - (@results[0] + @results[6]))
+    @week_savings = 0 if @week_savings < 0
   end
 
   def show

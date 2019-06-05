@@ -1,15 +1,14 @@
-<h1>Tell us a bit more</h1>
+<div class="container">
+  <br>
+  <h1>Tell us a bit more</h1>
+  <br>
 
+  <%= simple_form_for @wallet, url: tell_us_a_bit_more_wallets_path do |f| %>
+    <%= f.input :monthly_income_cents, :placeholder => "Your monthly income (£)", label: "Monthly Income", input_html: { value: @wallet.monthly_income_cents.zero? ? "Your monthly income (£)" : @wallet.monthly_income_cents } %>
+    <%= f.input :savings_cents, :placeholder => "An amount to save every month", label: "Monthly saving goal", input_html: { value: @wallet.savings_cents.zero? ? "An amount to save every month" : @wallet.savings_cents } %>
+    <%= f.input :fixed_cost_cents, :placeholder => "Rent, bills...", label: "Fixed expenses", input_html: { value: @wallet.fixed_cost_cents.zero? ? "Rent, bills..." : @wallet.fixed_cost_cents } %>
+  <br>
+    <%= f.button :submit, "Get recommendations", class:"btn btn-primary btn-main" %>
 
-<%= simple_form_for @wallet, url: tell_us_a_bit_more_wallets_path do |f| %>
-  <%= f.input :monthly_income_cents, :placeholder => "Your monthly income £", label: "Monthly Income", input_html: { value: @wallet.monthly_income_cents || 0 } %>
-  <%= f.input :savings_cents, :placeholder => "£", label: "Monthly saving goal", input_html: { value: @wallet.savings_cents || 0 } %>
-  <%= f.input :fixed_cost_cents, :placeholder => "Rent, bills ... £", label: "Fixed expenses", input_html: { value: @wallet.fixed_cost_cents || 0 } %>
-
-  <p>Available to spend: <%= @wallet.monthly_income_cents - @wallet.savings_cents - @wallet.fixed_cost_cents %> </p>
-
-
-  <%= f.submit "Calculate your disposable income", class: "btn btn-primary"%>
-  <%= link_to 'Get Recommendations', recommendations_wallets_path, class: "btn btn-success" %>
-
-<% end %>
+  <% end %>
+</div>

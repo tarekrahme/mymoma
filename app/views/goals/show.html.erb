@@ -9,8 +9,7 @@
   <% end %>
 
 
-  <div class="days-left-box">
-    105 days left 🏝
+  <div class="days-left-box"> <%= (@goal.completion_date.next_month - Date.today).to_i %> days left 🏝
   </div>
 
   <br>
@@ -22,9 +21,9 @@
     <span class="red-box small-box"> £<%= @goal.amount.to_i %></span>
   </div>
   <div class="progress" style="height: 22px">
-    <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: <%= (@progress/ @goal.amount_cents)*100 %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-      <div style="font-size: 16px;">
-      <%= (@progress/ @goal.amount_cents).round(1) *100 %>% of <%= @goal.amount.to_i %>£
+    <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: <%= (@progress/ @goal.amount_cents).round(1)*100 %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+      <div style="font-size: 16px">
+      <%= (@progress/ @goal.amount_cents).round(1) *100%>%
       </div>
     </div>
   </div>
@@ -32,7 +31,9 @@
 
 <div class="red-box save-box">
   <h6>Money left to save</h6>
-  <h4 class="font-weight-bold">£<span style="font-size: 40px;">150</span></h4>
+  <h4 class="font-weight-bold">£<span style="font-size: 40px;">
+    <%= (@goal.amount_cents.to_i - @progress.to_i)/100 %>
+  </span></h4>
 </div>
 
 <button class="btn btn-primary btn-main mt-4" style="font-size:20px;"> Book it!</button>

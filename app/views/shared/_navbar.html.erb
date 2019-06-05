@@ -16,7 +16,7 @@
         <i class="fas fa-bullseye navbar-item <%= (params[:controller] == 'goals' && params[:action] == 'new') ? 'active' : '' %>"></i>
       <% end %>
     <% end %>
-    <%= link_to recommendations_wallets_path do %>
+    <%= link_to questions_path do %>
       <i class="far fa-question-circle navbar-item <%= (params[:controller] == 'wallets' && params[:action] == 'recommendations') ? 'active' : '' %>"></i>
     <% end %>
 
