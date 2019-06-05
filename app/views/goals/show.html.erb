@@ -23,7 +23,7 @@
   <div class="progress" style="height: 22px">
     <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: <%= (@progress/ @goal.amount_cents).round(1)*100 %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
       <div style="font-size: 16px">
-      <%= (@progress/ @goal.amount_cents).round(1) *100%>%
+      <%= ((@progress / @goal.amount_cents) * 100).round(1)%>%
       </div>
     </div>
   </div>
