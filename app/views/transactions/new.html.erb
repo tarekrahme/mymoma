@@ -1,16 +1,19 @@
-<div class="container mt-4">
-  <h1 div class="mb-4">New transaction</h1>
-  <%= simple_form_for(@transaction) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :merchant %>
-      <%= f.input :amount_cents, label: "Amount (£)" %>
-      <%= f.simple_fields_for :day, @transaction.day do |t| %>
-        <%= t.input :date, as: :string, input_html: { class: 'datepicker' } %>
-      <% end %>
-    </div>
+  <h6 style="margin-left: 20px; margin-bottom: 0px; opacity: 0.3;"><% d = Date.today %>
+    <%= d.strftime("%A, %b %d")%>
+  </h6>
+  <h3 style="margin-left: 20px; opacity: 0.5;">New Transaction</h3>
+  <div class="container mt-4">
+    <%= simple_form_for(@transaction) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :merchant %>
+        <%= f.input :amount_cents, label: "Amount (£)" %>
+        <%= f.simple_fields_for :day, @transaction.day do |t| %>
+          <%= t.input :date, as: :string, input_html: { class: 'datepicker' }, wrapper_html: { class: 'test' } %>
+        <% end %>
+      </div>
 
-   <div class="form-actions mt-5">
-        <%= f.button :submit, "Add transaction", class:"btn btn-primary btn-main" %>
-    </div>
-  <% end %>
+     <div class="form-actions mt-5">
+          <%= f.button :submit, "Add transaction", class:"btn btn-primary btn-main" %>
+      </div>
+    <% end %>
   </div>
