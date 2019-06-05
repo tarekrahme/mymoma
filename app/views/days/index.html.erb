@@ -3,36 +3,48 @@
   <h6 style="margin-left: 20px; margin-bottom: 0px; opacity: 0.3;"><% d = Date.today %>
     <%= d.strftime("%A, %b %d")%>
   </h6>
-  <h3 style="margin-left: 20px; opacity: 0.6; border-bottom: 1px solid lightgrey;">Your statistics</h3>
+  <h3 style="margin-left: 20px; opacity: 0.6; ">Your statistics</h3>
   <div class="container">
     <canvas id="myChart" width="600" height="400" class="chart"></canvas>
   </div>
 </div>
 
-<h5 style="margin-left: 20px; opacity: 0.6;">Your allowance</h5>
-<div class="d-flex ">
+<div class="border save-box box-shadow" style="font-size:15px; opacity: 0.8;">Yay 🎉 Looks like you saved <span class="blue-font font-weight-bold">£24</span> this week!</div>
 
-  <div class="stats-info text-center blue-box">
-    <p>During the week</p>
-    <div class="font-weight-bold"> £<%= @weekday_available.round(1)%></div>
+<h5 class="font-weight-bold" style="opacity: 0.6; margin: 10px 10px 0px 20px;">Your allowance</h5>
+<div class="d-flex" >
+
+  <div class="stats-info text-center blue-box" style="margin: 10px 5px 10px 10px;">
+    <span style="font-size:13px;">During the week</span>
+    <div class="font-weight-bold"> £<span style="font-size: 40px;"><%= @weekday_available.round(1)%></span></div>
   </div>
 
-  <div class=" stats-info text-center red-box">
-    <p class= "text-center">Weekend</p>
-    <div class="font-weight-bold">£<%= @weekend_available.round(1) %></div>
+  <div class=" stats-info text-center red-box" style="margin: 10px 10px 10px 5px;">
+    <span class= "text-center" style="font-size:13px;">Weekend</span>
+    <div class="font-weight-bold">£<span style="font-size: 40px;"><%= @weekend_available.round(1) %></span></div>
   </div>
 </div>
-<h5 style="margin-left: 20px; opacity: 0.6;">Average expenses</h5>
-<div class="d-flex ">
+<h5 class="font-weight-bold" style="margin-left: 20px; opacity: 0.6; margin-bottom: 0px;">Average expenses</h5>
+<div class="d-flex" >
 
-  <div class="stats-info text-center blue-box">
-    <p>During the week</p>
-    <div class="font-weight-bold"> £<%= @weekday_spend.round(1) %></div>
+  <div class="stats-info text-center blue-box" style="margin: 10px 5px 10px 10px;">
+    <span class= "text-center" style="font-size:13px;">During the week</span>
+    <div class="font-weight-bold" style="font-size:25px;"> £<%= @weekday_spend.round(1) %></div>
+    <% if @weekday_available > @weekday_spend %>
+      <span style="font-size:20px;">💪🏼</span>
+      <% else %>
+      <span style="font-size:20px;">😱</span>
+    <% end %>
   </div>
 
-  <div class="stats-info text-center red-box">
-    <p class= "text-center">Weekend</p>
-    <div class="font-weight-bold">£<%= @weekend_spend.round(1) %></div>
+  <div class="stats-info text-center red-box" style="margin: 10px 10px 10px 5px;">
+    <span class= "text-center" style="font-size:13px;">Weekend</span>
+    <div class="font-weight-bold" style="font-size:25px;">£<%= @weekend_spend.round(1) %></div>
+    <% if @weekday_available > @weekday_spend %>
+      <span style="font-size:20px;">💪🏼</span>
+      <% else %>
+      <span style="font-size:20px;">😱</span>
+    <% end %>
   </div>
 </div>
 
