@@ -33,17 +33,18 @@
 }
 
 .bottom-radius {
-  border-radius: 0 0 50px 50px;
+  border-radius: 0 0 50% 50%/ 0 0 40px 40px;
 }
 
 .days-left-box {
   border: 1px solid transparent;
-  border-radius: 10px;
-  background-color: #234bc4;
+  border-radius: 15px;
+  background-color: #355fdd;
   width: 200px;
   margin: 20px auto;
   text-align: center;
   font-size: 20px;
+  padding: 8px;
 }
 
 .progress-text {
@@ -77,5 +78,14 @@
 }
 
 .radius-top {
-  border-radius: 80px 80px 0 0;
+  border-radius: 50% 50% 0 0 / 50px 50px 0 0;
+}
+
+.white-box {
+  background-color: $light-blue;
+  color: $blue;
+  padding: 8px 8px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 15px;
 }
