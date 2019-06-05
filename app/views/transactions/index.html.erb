@@ -33,10 +33,12 @@
                         <p style="text-align: center; font-size: 30px; margin: 0 5px">🌱</p>
                       <% when "Tesco" %>
                         <p style="text-align: center; font-size: 30px; margin: 0 5px">🥦</p>
+                      <% else %>
+                        <p style="text-align: center; font-size: 30px; margin: 0 5px">🔑</p>
                     <% end %>
                     <div>
                       <p class="font-weight-bold no-bottom-margin" style="color:black; opacity: 0.6;"><%= transaction.merchant %></p>
-                      <h6 style="color:black; opacity: 0.3;"><%= transaction.created_at.strftime("%A, %b %d") %></p>
+                      <h6 style="color:black; opacity: 0.3;"><%= transaction.day.date.strftime("%A, %b %d") %></p>
                     </div>
                   </div>
                   <h5 class="red-font mr-3">-£<%= transaction.amount_cents / 100.0 %></h5>
@@ -68,10 +70,12 @@
                         <p style="text-align: center; font-size: 30px; margin: 0 5px">🌱</p>
                       <% when "Tesco" %>
                         <p style="text-align: center; font-size: 30px; margin: 0 5px">🥦</p>
+                      <% else %>
+                        <p style="text-align: center; font-size: 30px; margin: 0 5px">🔑</p>
                     <% end %>
                     <div>
                       <p class="font-weight-bold no-bottom-margin" style="color:black; opacity: 0.6;"><%= transaction.merchant %></p>
-                      <h6 style="color:black; opacity: 0.3;"><%= transaction.created_at.strftime("%A, %b %d") %></p>
+                      <h6 style="color:black; opacity: 0.3;"><%= transaction.day.date.strftime("%A, %b %d") %></p>
                     </div>
                   </div>
                   <h5 class="red-font mr-3">-£<%= transaction.amount_cents / 100.0 %></h5>
@@ -104,10 +108,12 @@
                         <p style="text-align: center; font-size: 30px; margin: 0 5px">🌱</p>
                       <% when "Tesco" %>
                         <p style="text-align: center; font-size: 30px; margin: 0 5px">🥦</p>
+                        <% else %>
+                        <p style="text-align: center; font-size: 30px; margin: 0 5px">🔑</p>
                     <% end %>
                     <div>
                       <p class="font-weight-bold no-bottom-margin" style="color:black; opacity: 0.6;"><%= transaction.merchant %></p>
-                      <h6 style="color:black; opacity: 0.3;"><%= transaction.created_at.strftime("%A, %b %d") %></p>
+                      <h6 style="color:black; opacity: 0.3;"><%= transaction.day.date.strftime("%A, %b %d") %></p>
                     </div>
                   </div>
                   <h5 class="red-font mr-3">-£<%= transaction.amount_cents / 100.0 %></h5>
