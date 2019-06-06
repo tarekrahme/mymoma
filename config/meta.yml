@@ -1,5 +1,5 @@
 meta_product_name: "MyMoMa"
 meta_title: "MyMoMa - My Money Manager"
 meta_description: "Budgeting made easy"
-meta_image: "mymoma.png" # should exist in `app/assets/images/`
+meta_image: "meta_image.png" # should exist in `app/assets/images/`
 twitter_account: "@tarekrahme"   # required for Twitter Cards
