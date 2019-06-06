@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h1>New Goal</h1>
+  <h4 class="font-weight-bold" style="margin-left: 20px; opacity: 0.6;">New Goal</h4>
   <%= simple_form_for(@goal) do |f| %>
     <div class="form-inputs">
       <%= f.input :name %>
@@ -10,9 +10,11 @@
       <%= f.input :picture_cache, as: :hidden %>
       <%= f.input :link %>
     </div>
+  </div>
 
-   <div class="form-actions">
-        <%= f.button :submit, "Add Goal", class:"btn btn-primary btn-main" %>
+<div class="blue-background radius-top" style="height: 400px; width: 100%; position: absolute;">
+  <div class="form-actions">
+        <%= f.button :submit, "Add Goal", class:"btn btn-primary white-button", style:"position:relative; top:70px;" %>
     </div>
   <% end %>
-  </div>
+</div>

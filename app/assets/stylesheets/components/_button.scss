@@ -34,3 +34,14 @@
   font-size: 20px;
 }
 
+.white-button {
+  margin: 0 auto;
+  border-radius: 30px;
+  background-color: $light-blue;
+  color: $blue;
+  height: 60px;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

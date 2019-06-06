@@ -11,7 +11,7 @@
   </div>
   <div class="transactions-box w-100">
 
-    <h5 class="my-4 text-center" style="opacity:0.6;">Today:</h5>
+    <h5 class="my-4 text-center" style="opacity:0.6;">Today</h5>
     <% @transactions.each do |transaction| %>
       <%= link_to transaction_path(transaction) do %>
         <div class="flex-and-between ml-2">
@@ -38,7 +38,7 @@
                     <% end %>
                     <div>
                       <p class="font-weight-bold no-bottom-margin" style="color:black; opacity: 0.6;"><%= transaction.merchant %></p>
-                      <h6 style="color:black; opacity: 0.3;"><%= transaction.day.date.strftime("%A, %b %d") %></p>
+                      <p style="color:black; opacity: 0.3;"><%= transaction.day.date.strftime("%A, %b %d") %></p>
                     </div>
                   </div>
                   <h5 class="red-font mr-3">-£<%= transaction.amount_cents / 100.0 %></h5>
@@ -75,7 +75,14 @@
                     <% end %>
                     <div>
                       <p class="font-weight-bold no-bottom-margin" style="color:black; opacity: 0.6;"><%= transaction.merchant %></p>
-                      <h6 style="color:black; opacity: 0.3;"><%= transaction.day.date.strftime("%A, %b %d") %></p>
+                      <h6 style="color:black; opacity: 0.3;">
+                        <% if time_ago_in_words(transaction.day.date) == "1 day" %>
+                          <p>Yesterday</p>
+
+                        <% else %>
+                          <p><%= time_ago_in_words(transaction.day.date) %> ago</p>
+                        <% end %>
+                      </h6>
                     </div>
                   </div>
                   <h5 class="red-font mr-3">-£<%= transaction.amount_cents / 100.0 %></h5>
@@ -113,7 +120,14 @@
                     <% end %>
                     <div>
                       <p class="font-weight-bold no-bottom-margin" style="color:black; opacity: 0.6;"><%= transaction.merchant %></p>
-                      <h6 style="color:black; opacity: 0.3;"><%= transaction.day.date.strftime("%A, %b %d") %></p>
+                      <h6 style="color:black; opacity: 0.3;">
+                      <% if time_ago_in_words(transaction.day.date) == "1 day" %>
+                          <p>Yesterday</p>
+
+                        <% else %>
+                          <p><%= time_ago_in_words(transaction.day.date) %> ago</p>
+                        <% end %>
+                      </h6>
                     </div>
                   </div>
                   <h5 class="red-font mr-3">-£<%= transaction.amount_cents / 100.0 %></h5>

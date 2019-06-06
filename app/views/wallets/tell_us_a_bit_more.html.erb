@@ -1,14 +1,16 @@
 <div class="container">
   <br>
-  <h1>Tell us a bit more</h1>
+  <h4 class="font-weight-bold" style="margin-left: 20px; opacity: 0.6; ">Tell us a bit more</h4>
   <br>
 
   <%= simple_form_for @wallet, url: tell_us_a_bit_more_wallets_path do |f| %>
     <%= f.input :monthly_income_cents, :placeholder => "Your monthly income (£)", label: "Monthly Income", input_html: { value: @wallet.monthly_income_cents.zero? ? "Your monthly income (£)" : @wallet.monthly_income_cents } %>
     <%= f.input :savings_cents, :placeholder => "An amount to save every month", label: "Monthly saving goal", input_html: { value: @wallet.savings_cents.zero? ? "An amount to save every month" : @wallet.savings_cents } %>
     <%= f.input :fixed_cost_cents, :placeholder => "Rent, bills...", label: "Fixed expenses", input_html: { value: @wallet.fixed_cost_cents.zero? ? "Rent, bills..." : @wallet.fixed_cost_cents } %>
-  <br>
-    <%= f.button :submit, "Get recommendations", class:"btn btn-primary btn-main" %>
 
-  <% end %>
 </div>
+
+<div class="blue-background radius-top" style="height: 400px; width: 100%; position: absolute;">
+  <%= f.button :submit, "Get recommendations", class:"btn btn-primary white-button", style:"position: relative; top:120px;" %>
+</div>
+<% end %>
