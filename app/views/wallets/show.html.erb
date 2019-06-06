@@ -59,8 +59,13 @@
             </div>
           <% end %>
         </div>
-        <%= link_to "All transactions", transactions_path, class:"text-right", style:"text-decoration: underline;" %>
-        <%= link_to new_transaction_path, class:"btn-add btn-add-absolute" do %>
+
+        <% unless @transactions.empty? %>
+          <%= link_to "All transactions", transactions_path, class:"text-right", style:"text-decoration: underline;" %>
+        <% else %>
+          <p class="text-center blue-box small-box" style="margin-top: 100px; padding: 15px; opacity:0.9;">You have no logged transactions</p>
+        <% end %>
+       <%= link_to new_transaction_path, class:"btn-add btn-add-absolute" do %>
           <i style="font-size: 20px; color: white;" class="fas fa-plus"></i>
         <% end %>
       </div>

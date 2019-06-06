@@ -9,7 +9,12 @@
   </div>
 </div>
 
-<div class="border save-box box-shadow" style="font-size:15px; opacity: 0.8;">Yay 🎉 Looks like you saved <span class="blue-font font-weight-bold">£<%= @week_savings.to_i %></span> this week!</div>
+<% unless @week_savings.nil? %>
+  <div class="border save-box box-shadow" style="font-size:15px; opacity: 0.8;">Yay 🎉 Looks like you saved <span class="blue-font font-weight-bold">£<%= @week_savings.to_i %></span> this week!</div>
+<% else %>
+  <div class="border save-box box-shadow" style="font-size:15px; opacity: 0.8;">Looks like you have <span class="blue-font font-weight-bold">£0%></span> saved so far. Let's get started 💰</div>
+<% end %>
+
 
 <h5 class="font-weight-bold" style="opacity: 0.6; margin: 10px 10px 0px 20px;">Your allowance</h5>
 <div class="d-flex" >
