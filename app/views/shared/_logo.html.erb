@@ -8,15 +8,14 @@
     <% end %>
   <% end %>
   <% if  params[:controller] == 'goals' && params[:action] == 'show' %>
-    <%= link_to destroy_user_session_path, method: :delete do %>
+    <%= link_to wallet_path(current_user.wallet) do %>
       <%= image_tag "white_logo.png", class:"small-logo" %>
     <% end %>
   <% else %>
-    <%= link_to destroy_user_session_path, method: :delete do %>
+    <%= link_to wallet_path(current_user.wallet) do %>
       <%= image_tag "blue_logo.png", class:"small-logo" %>
     <% end %>
   <% end %>
 
 </div>
-
 
