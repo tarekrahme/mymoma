@@ -50,7 +50,7 @@
                     <% end %>
                     <div>
                       <p class="font-weight-bold no-bottom-margin"><%= transaction.merchant %></p>
-                      <h6 style="opacity: 0.3; font-size: 13px;"><%= transaction.day.date.strftime("%A, %b %d") %></p>
+                      <h6 style="opacity: 0.5; font-size: 13px;"><%= transaction.day.date.strftime("%A, %b %d") %></p>
                     </div>
                   </div>
                   <h5 class="white-box">-£<%= transaction.amount_cents / 100.0 %></h5>
