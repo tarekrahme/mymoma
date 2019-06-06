@@ -18,7 +18,7 @@ if (document.getElementById('transactions-data')) {
     daysOnAxis.push(weekdays[day])
   });
 
-
+  Chart.defaults.global.legend.display = false;
   var ctx = document.getElementById('myChart');
   if (ctx) {
     var ctxChart = ctx.getContext('2d');
