@@ -59,8 +59,7 @@
             </div>
           <% end %>
         </div>
-
-        <% unless @transactions.empty? %>
+        <% unless @all.empty? %>
           <%= link_to "All transactions", transactions_path, class:"text-right", style:"text-decoration: underline;" %>
         <% else %>
           <p class="text-center blue-box small-box" style="margin-top: 100px; padding: 15px; opacity:0.9;">You have no logged transactions</p>

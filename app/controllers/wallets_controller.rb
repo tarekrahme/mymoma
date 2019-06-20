@@ -17,6 +17,7 @@ class WalletsController < ApplicationController
       @total_spent += transaction.amount_cents / 100.0
     end
     @daily_remaining = @daily_budget - @total_spent
+    @all = Transaction.where(wallet: current_user.wallet)
   end
 
   def tell_us_a_bit_more
